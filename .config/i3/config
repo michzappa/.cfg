@@ -198,6 +198,7 @@ bindsym $mod+slash exec rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -the
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        mode invisible
         status_command i3blocks -c ~/.config/i3blocks/config
         position top
         colors {
@@ -210,11 +211,7 @@ bar {
 	}
 }
 
-# Run at Startup
-exec feh --bg-scale /home/michael/Pictures/arch-wallpaper.jpg
-exec spotify
-exec picom -f --config $HOME/.config/picom/picom.conf
-exec redshift-gtk -l geoclue2 -t 6500:3500
+
 # Gaps
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 2
@@ -272,3 +269,10 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Run at Startup
+exec feh --bg-scale /home/michael/Pictures/arch-wallpaper.jpg
+exec spotify
+exec picom -f --config $HOME/.config/picom/picom.conf
+exec redshift-gtk -l geoclue2 -t 6500:3500
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
