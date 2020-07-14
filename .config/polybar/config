@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=12;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = pulseaudio memory cpu wlan temperature date
+modules-right = pulseaudio memory cpu wlan temperature date keyboard
 
 tray-position = right
 tray-padding = 2
@@ -117,7 +117,10 @@ label-urgent-padding = 2
 ; label-separator = |
 
 
-
+[module/keyboard]
+type = custom/script
+exec = ~/.config/polybar/keyboardlayout.sh
+label = %output%
 
 [module/cpu]
 type = internal/cpu

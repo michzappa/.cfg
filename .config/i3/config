@@ -276,3 +276,7 @@ exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
 exec redshift-gtk -l geoclue2 -t 6500:3500
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+
+# Changing Keyboard between us and us intl
+exec_always setxkbmap -layout us
+bindsym Ctrl+k exec $HOME/.config/i3/changekeyboard.sh
