@@ -271,7 +271,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Run at Startup
-exec feh --bg-scale /home/michael/Pictures/arch-wallpaper.jpg
+exec feh --bg-scale /home/michael/Pictures/snow-mountain-wallpaper.jpg
 exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
 exec redshift-gtk -l geoclue2 -t 6500:3500
