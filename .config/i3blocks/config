@@ -57,14 +57,11 @@ label=HOME:
 #DIR=/mnt/data
 interval=30
 
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#IFACE=wlan0
-color=#06989A
+[wifi]
+label=wifi:
+INTERFACE=wlp2s0
 interval=10
+COLOR=#06989A
 
 [load_average]
 label=CPU LOAD:

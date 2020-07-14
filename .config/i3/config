@@ -99,7 +99,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# custom bindings for firefox and emacs
+# custom bindings for frequency applications
+bindsym $mod+n exec nautilus
 bindsym $mod+x exec firefox
 bindsym $mod+m exec emacs
 # Define names for default workspaces for which we configure key bindings later on.
@@ -213,7 +214,7 @@ bar {
 exec feh --bg-scale /home/michael/Pictures/arch-wallpaper.jpg
 exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
-exec_always redshift-gtk -l geoclue2 -t 6500:3500
+exec redshift-gtk -l geoclue2 -t 6500:3500
 # Gaps
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 2

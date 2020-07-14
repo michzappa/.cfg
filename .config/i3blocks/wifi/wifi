@@ -28,7 +28,7 @@ fi
 if [[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]]; then
     echo "down"
     echo "down"
-    echo "#FF0000"
+    echo $COLOR
     exit
 fi
 
@@ -43,11 +43,11 @@ echo $QUALITY% # short text
 
 # color
 if [[ $QUALITY -ge 80 ]]; then
-    echo "#00FF00"
+    echo $COLOR
 elif [[ $QUALITY -ge 60 ]]; then
-    echo "#FFF600"
+    echo $COLOR
 elif [[ $QUALITY -ge 40 ]]; then
-    echo "#FFAE00"
+    echo $COLOR
 else
-    echo "#FF0000"
+    echo $COLOR
 fi
