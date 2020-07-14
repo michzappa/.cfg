@@ -119,8 +119,10 @@ label-urgent-padding = 2
 
 [module/keyboard]
 type = custom/script
+interval = 2
 exec = ~/.scripts/get_current_keyboard_layout.sh
 label = %output%
+format-underline = ${colors.primary}
 
 [module/cpu]
 type = internal/cpu

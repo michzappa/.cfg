@@ -1,5 +1,5 @@
 #!/bin/bash
-CURRENT=`~/.config/polybar/keyboardlayout.sh`
+CURRENT=`~/.scripts/get_current_keyboard_layout.sh`
 
 if [ $CURRENT = 'us' ]
 then
