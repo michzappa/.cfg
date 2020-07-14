@@ -1,0 +1,38 @@
+Looking for git in: git
+Using git 2.27.0 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /home/michael/.config/i3blocks
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/home/michael/.config/i3blocks/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :memory/i3blocks.conf
+> git ls-files --stage -- /home/michael/.config/i3blocks/memory/i3blocks.conf
+> git cat-file -s 0a86f042c911a95fcfaa4b3c4937e6654fe15bd5
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv HEAD:config
+> git ls-tree -l HEAD -- /home/michael/.config/i3blocks/config
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/home/michael/.config/i3blocks/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git ls-tree -l HEAD -- /home/michael/.config/i3blocks/config
+fatal: not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: not a git repository (or any of the parent directories): .git

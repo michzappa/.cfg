@@ -1,0 +1,8 @@
+[Error - 11:42:23 PM] Request textDocument/codeLens failed.
+Error: Connection got disposed.
+	at Object.dispose (/home/michael/.vscode-oss/extensions/jakebecker.elixir-ls-0.5.0/node_modules/vscode-jsonrpc/lib/main.js:904:25)
+	at Object.dispose (/home/michael/.vscode-oss/extensions/jakebecker.elixir-ls-0.5.0/node_modules/vscode-languageclient/lib/client.js:74:35)
+	at /home/michael/.vscode-oss/extensions/jakebecker.elixir-ls-0.5.0/node_modules/vscode-languageclient/lib/client.js:2208:28
+	at async Promise.all (index 0)
+	at async Promise.all (index 9)
+	at async h.deactivateAll (/usr/lib/code/out/vs/workbench/services/extensions/node/extensionHostProcess.js:833:143)
