@@ -279,4 +279,4 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
 # Changing Keyboard between us and us intl
 exec_always setxkbmap -layout us
-bindsym Ctrl+k exec $HOME/.config/i3/changekeyboard.sh
+bindsym Ctrl+k exec $HOME/.scripts/change_keyboard_layout.sh
