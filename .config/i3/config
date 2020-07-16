@@ -274,7 +274,8 @@ mode "$mode_gaps_outer" {
 exec feh --bg-scale /home/michael/Pictures/snow-mountain-wallpaper.jpg
 exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
-exec redshift-gtk -l geoclue2 -t 6500:3500
+exec_always pkill redshift
+#exec redshift
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
 # Changing Keyboard between us and us intl

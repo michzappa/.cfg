@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=12;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = pulseaudio memory cpu wlan temperature date keyboard
+modules-right = pulseaudio memory cpu wlan date keyboard
 
 tray-position = right
 tray-padding = 2
