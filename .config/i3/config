@@ -103,6 +103,8 @@ bindsym $mod+a focus parent
 bindsym $mod+n exec nautilus
 bindsym $mod+x exec firefox
 bindsym $mod+m exec emacs
+bindsym $mod+c exec code
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -183,7 +185,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $accent-color        #06989A
+set $accent-color        #7895b3
 
 # window colors
 #                       border              background         text                 indicator
@@ -214,7 +216,7 @@ bar {
 
 # Gaps
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
 # Set inner/outer gaps
 gaps inner 10
@@ -274,7 +276,6 @@ mode "$mode_gaps_outer" {
 exec feh --bg-scale /home/michael/Pictures/snow-mountain-wallpaper.jpg
 exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
-exec_always pkill redshift
 #exec redshift
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
