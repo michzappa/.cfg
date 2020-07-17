@@ -267,11 +267,11 @@ bar {
 
 
 # custom bindings for frequency applications
-bindsym $mod+n exec nautilus
+bindsym $mod+n exec krusader 
 bindsym $mod+x exec firefox
 bindsym $mod+m exec emacs
 bindsym $mod+c exec code
-bindsym $mod+Return exec gnome-terminal --hide-menubar
+bindsym $mod+Return exec kitty
 
 # Run at Startup
 exec feh --bg-scale /home/michael/Wallpapers/snow-mountain-wallpaper.jpg
