@@ -80,3 +80,14 @@ vnoremap <Space> zf
 " Automatically save and load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Calls the .vimrc.plug file
+if filereadable(expand("~/.vimrc.plug"))
+    source ~/.vimrc.plug
+endif
