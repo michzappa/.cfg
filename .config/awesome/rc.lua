@@ -64,14 +64,14 @@ awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -250,8 +250,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --     {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -276,9 +276,9 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
+    awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "x", awesome.quit,
+    awful.key({ modkey, "Shift"   }, "e", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -310,9 +310,14 @@ globalkeys = gears.table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
+    -- File Manager
+    awful.key({ modkey }, "k",
+        function () awful.util.spawn("krusader") end,
+    {description = "open file manager", group="launcher"}),
     -- Prompt
     awful.key({ modkey }, "/",
-        function () awful.util.spawn("rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme ~/.config/rofi/arc-dark") end),
+        function () awful.util.spawn("rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme ~/.config/rofi/arc-dark") end,
+    {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -336,7 +341,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
