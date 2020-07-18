@@ -267,7 +267,7 @@ bar {
 
 
 # custom bindings for frequency applications
-bindsym $mod+n exec krusader 
+bindsym $mod+n exec Thunar 
 bindsym $mod+x exec firefox
 bindsym $mod+m exec emacs
 bindsym $mod+c exec code
@@ -284,3 +284,5 @@ exec conky
 # Changing Keyboard between us and us intl
 exec_always setxkbmap -layout us
 bindsym Ctrl+k exec $HOME/.scripts/change_keyboard_layout.sh
+
+bindsym Ctrl+Shift+v exec kitty -e vifm
