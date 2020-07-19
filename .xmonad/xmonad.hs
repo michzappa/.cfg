@@ -65,18 +65,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
       ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
       ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
-      ((0, xF86XK_AudioMute       ), spawn "amizer -D pulse set Master 1+ toggle")
+      ((0, xF86XK_AudioMute       ), spawn "amixer set Master toggle")
     ]
     ++
 
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch dmenu
-    , ((modm,               xK_slash     ), spawn "dmenu_run")
-
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+    -- launch rofi (application launcher)
+    , ((modm,               xK_slash     ), spawn "rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme $HOME/.config/rofi/arc-dark")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -121,10 +118,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
+--    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
 
     -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+--    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
