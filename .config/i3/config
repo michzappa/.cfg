@@ -274,7 +274,7 @@ bindsym $mod+c exec code
 bindsym $mod+Return exec kitty
 
 # Run at Startup
-exec feh --bg-scale /home/michael/Wallpapers/snow-mountain-wallpaper.jpg
+exec nitrogen --restore 
 exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
 #exec redshift
