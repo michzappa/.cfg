@@ -61,31 +61,37 @@ myFocusedBorderColor = "#ff0000"
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    -- ADDED SHORTCUTS
+    -- Application Shortcuts
+    [
+      ((modm, xK_x), spawn "firefox"),
+      ((modm, xK_n), spawn "Thunar"),
+      ((modm, xK_m), spawn "emacs")
+    ]
+    ++
+
+    -- Volume Manipulation and Keyboard Change 
     [
       ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
       ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
-      ((0, xF86XK_AudioMute       ), spawn "amixer set Master toggle")
+      ((0, xF86XK_AudioMute       ), spawn "amixer set Master toggle"),
+      ((mod1Mask .|.  controlMask, xK_k), spawn "~/.scripts/change_keyboard_layout.sh")
     ]
     ++
 
     -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch rofi (application launcher)
     , ((modm,               xK_slash     ), spawn "rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme $HOME/.config/rofi/arc-dark")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm .|. shiftMask, xK_q     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
-
-    -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
 
     -- Move focus to the next window
     , ((modm,               xK_Tab   ), windows W.focusDown)
@@ -100,7 +106,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
+    , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
@@ -130,7 +136,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_e     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
