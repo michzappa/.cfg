@@ -285,4 +285,4 @@ exec conky
 exec_always setxkbmap -layout us
 bindsym Ctrl+k exec $HOME/.scripts/change_keyboard_layout.sh
 
-bindsym Ctrl+Shift+v exec kitty -e vifm
+bindsym Ctrl+$mod+v exec kitty -e vifm
