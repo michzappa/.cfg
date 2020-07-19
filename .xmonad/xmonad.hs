@@ -12,6 +12,9 @@ import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Hooks.DynamicLog
+import Graphics.X11.ExtraTypes.XF86
+import System.IO
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -58,11 +61,19 @@ myFocusedBorderColor = "#ff0000"
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
+    -- ADDED SHORTCUTS
+    [
+      ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
+      ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
+      ((0, xF86XK_AudioMute       ), spawn "amizer -D pulse set Master 1+ toggle")
+    ]
+    ++
+
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    , ((modm,               xK_slash     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
