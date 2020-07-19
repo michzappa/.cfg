@@ -64,7 +64,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Application Shortcuts
     [
       ((modm, xK_x), spawn "firefox"),
-      ((modm, xK_n), spawn "Thunar"),
+      ((modm, xK_c), spawn "code"),
+      ((modm, xK_n), spawn "nautilus"),
       ((modm, xK_m), spawn "emacs")
     ]
     ++
