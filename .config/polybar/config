@@ -55,7 +55,7 @@ font-0 = fixed:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
 font-2 = siji:pixelsize=12;1
 
-modules-left = bspwm i3
+modules-left = battery i3
 modules-center = mpd
 modules-right = pulseaudio memory cpu wlan date keyboard
 
@@ -77,7 +77,30 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[module/battery]
+type = internal/battery
 
+full-at = 99
+battery = BAT0
+adapter = AC
+
+format-charging = <label-charging>
+label-charging =  %percentage%%
+format-charging-foreground = ${colors.foreground}
+format-charging-background = ${colors.background}
+format-charging-underline = #a3c725
+
+format-discharging = <label-discharging>
+label-discharging =  %percentage%%
+format-discharging-underline = #c7ae25
+format-discharging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.background}
+
+format-full-prefix = " "
+format-full-prefix-foreground = #a3c725
+format-full-underline = #a3c725
+format-full-foreground = ${colors.foreground}
+format-full-background = ${colors.background}
 
 [module/i3]
 type = internal/i3
