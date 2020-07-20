@@ -287,6 +287,6 @@ exec conky
 
 # Changing Keyboard between us and us intl
 exec_always setxkbmap -layout us
-bindsym Ctrl+k exec $HOME/.scripts/change_keyboard_layout.sh
+bindsym Ctrl+Mod1+k exec $HOME/.scripts/change_keyboard_layout.sh
 
 bindsym Ctrl+$mod+v exec kitty -e vifm
