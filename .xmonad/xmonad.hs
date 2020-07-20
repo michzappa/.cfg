@@ -65,7 +65,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
       ((modm, xK_x), spawn "firefox"),
       ((modm, xK_c), spawn "code"),
-      ((modm, xK_n), spawn "nautilus"),
+      ((modm, xK_n), spawn "thunar"),
       ((modm, xK_m), spawn "emacs")
     ]
     ++

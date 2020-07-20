@@ -267,7 +267,7 @@ bar {
 
 
 # custom bindings for frequency applications
-bindsym $mod+n exec nautilus 
+bindsym $mod+n exec thunar 
 bindsym $mod+x exec firefox
 bindsym $mod+m exec emacs
 bindsym $mod+c exec code
