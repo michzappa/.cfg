@@ -1,7 +1,6 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.EZConfig(additionalKeys)
 import Data.Monoid
 import System.Exit
 import XMonad.Util.Run
@@ -9,7 +8,6 @@ import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import Graphics.X11.ExtraTypes.XF86
-import System.IO
 
 myStartupHook :: X ()
 myStartupHook = do
@@ -24,7 +22,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
       ((modm, xK_x), spawn "firefox"),
       ((modm, xK_c), spawn "code"),
       ((modm, xK_n), spawn "thunar"),
-      ((modm, xK_v), spawn "emacs")
+      ((modm, xK_m), spawn "emacs")
     ]
     ++
 
@@ -64,7 +62,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_k     ), windows W.focusUp  )
 
     -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster  )
+    -- , ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
     , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
@@ -121,7 +119,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-        
+
+myManageHook :: Query (Endo WindowSet)
+myManageHook = composeAll
+  [
+    manageDocks
+  ]
+ 
 main :: IO ()
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -129,7 +133,7 @@ main = do
     xmonad $ docks def
         { terminal = "kitty"
         , startupHook        = myStartupHook
-        , manageHook = manageDocks <+> manageHook def
+        , manageHook = myManageHook <+> manageHook def
         , layoutHook = avoidStruts  $  layoutHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc

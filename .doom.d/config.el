@@ -30,7 +30,8 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/"
       display-line-numbers-type t
-      doom-theme 'doom-one
+      ;;doom-theme 'doom-one
+      doom-theme 'doom-nord
       projectile-project-search-path '("~/GitRepos" "~/Projects")
       projectile-auto-discover 1)
 
@@ -54,10 +55,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/org-basics/org-basics.org")))
  '(package-selected-packages (quote (evil-snipe))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background "#21242b")))))
