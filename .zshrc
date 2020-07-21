@@ -14,10 +14,12 @@ SAVEHIST=1000
 setopt autocd
 unsetopt beep
 bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
 zstyle :compinstall filename '/home/michael/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+
+# commands to run on startup
+neofetch
+dotbare pull
