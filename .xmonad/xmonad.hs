@@ -261,8 +261,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook :: X ()
-myLogHook = return ()
+myLogHook xmproc = dynamicLogWithPP xmobarPP {ppOutput = hPutStrLn xmproc}
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -271,23 +270,10 @@ myStartupHook = do
       spawnOnce "nitrogen --restore &"
       spawnOnce "picom -f &" 
 
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
-
--- Run xmonad with the settings you specify. No need to modify this.
-
 main :: IO ()
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 /home/michael/.config/xmobar/xmobarrc &"
-  xmonad $ docks defaults
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
+  xmproc <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc &"
+  xmonad $ docks $ defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -306,7 +292,7 @@ defaults = def {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        logHook            = myLogHook xmproc,
         startupHook        = myStartupHook
     }
 
