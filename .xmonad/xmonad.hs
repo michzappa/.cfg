@@ -8,14 +8,15 @@ import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-import XMonad.Hooks.DynamicLog
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
+myStartupHook :: X ()
 myStartupHook = do
       spawnOnce "nitrogen --restore &"
       spawnOnce "picom -f &"
 
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X())
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Application Shortcuts
@@ -23,7 +24,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
       ((modm, xK_x), spawn "firefox"),
       ((modm, xK_c), spawn "code"),
       ((modm, xK_n), spawn "thunar"),
-      ((modm, xK_m), spawn "emacs")
+      ((modm, xK_v), spawn "emacs")
     ]
     ++
 
@@ -121,14 +122,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
         
+main :: IO ()
 main = do
     xmproc <- spawnPipe "xmobar"
 
-    xmonad $ docks defaultConfig
+    xmonad $ docks def
         { terminal = "kitty"
         , startupHook        = myStartupHook
-        , manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , manageHook = manageDocks <+> manageHook def
+        , layoutHook = avoidStruts  $  layoutHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppCurrent = xmobarColor "#7895b3" "" . wrap "[""]"
