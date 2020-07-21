@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=12;1
 
 modules-left = battery i3
 modules-center = mpd
-modules-right = pulseaudio memory cpu wlan date keyboard
+modules-right = pulseaudio memory cpu laptop-wireless desktop-wireless date keyboard
 
 tray-position = right
 tray-padding = 2
@@ -163,9 +163,9 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 label = RAM: %percentage_used%%
 
-[module/wlan]
+[module/laptop-wireless]
 type = internal/network
-interface = wlp2s0
+interface = wlp59s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -185,6 +185,26 @@ ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 
+[module/desktop-wireless]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.primary}
+label-connected = %essid%
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date

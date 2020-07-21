@@ -7,6 +7,9 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar, using default config location ~/.config/polybar/config
-polybar mybar &
+wifi_interface=$("$HOME/.scripts/get_wifi_interface_name.sh")
+
+wifi_interface=$wifi_interface polybar mybar &
 
 echo "Polybar launched..."
+echo "$wifi_interface"
