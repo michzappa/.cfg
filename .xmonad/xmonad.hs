@@ -19,6 +19,7 @@ import System.IO
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
+myTerminal :: [Char]
 myTerminal      = "kitty"
 
 -- Whether focus follows the mouse pointer.
@@ -31,6 +32,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
+myBorderWidth :: Dimension
 myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
@@ -38,6 +40,7 @@ myBorderWidth   = 1
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
+myModMask :: KeyMask
 myModMask       = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
@@ -49,16 +52,21 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
+myWorkspaces :: [[Char]]
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
+myNormalBorderColor :: [Char]
 myNormalBorderColor  = "#dddddd"
+
+myFocusedBorderColor :: [Char]
 myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Application Shortcuts
@@ -170,6 +178,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
+myMouseBindings :: XConfig Layout -> M.Map (KeyMask, Button) (Window -> X ())
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -197,6 +206,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
+
 myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -226,6 +236,7 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
+myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
@@ -241,6 +252,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
+myEventHook :: Event -> X All
 myEventHook = mempty
 
 ------------------------------------------------------------------------
@@ -249,11 +261,12 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
+myLogHook :: X ()
 myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
-
+myStartupHook :: X ()
 myStartupHook = do
       spawnOnce "nitrogen --restore &"
       spawnOnce "picom -f &" 
@@ -263,6 +276,7 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 
+main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar -x 0 /home/michael/.config/xmobar/xmobarrc &"
   xmonad $ docks defaults
