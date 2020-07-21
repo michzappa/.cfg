@@ -131,7 +131,9 @@ main = do
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "green" "" . shorten 50
+                        , ppCurrent = xmobarColor "#7895b3" "" . wrap "[""]"
+                        , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
+                        , ppUrgent = xmobarColor "yellow" "red"
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         , keys               = myKeys
