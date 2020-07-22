@@ -125,7 +125,7 @@ myManageHook = composeAll
   [
     manageDocks
   ]
- 
+      
 main :: IO ()
 main = do
     xmproc <- spawnPipe "xmobar"
