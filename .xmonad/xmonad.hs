@@ -24,7 +24,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
       ((modm, xK_x), spawn "firefox"),
       ((modm, xK_c), spawn "code"),
       ((modm, xK_n), spawn "thunar"),
-      ((modm, xK_v), spawn "emacs")
+      ((modm, xK_m), spawn "emacs")
     ]
     ++
 
@@ -64,7 +64,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_k     ), windows W.focusUp  )
 
     -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster  )
+    --, ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
     , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)

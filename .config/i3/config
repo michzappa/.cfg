@@ -274,7 +274,7 @@ bar {
 bindsym $mod+n exec thunar 
 bindsym $mod+x exec firefox
 bindsym $mod+c exec code
-bindsym $mod+v exec emacs
+bindsym $mod+m exec emacs
 bindsym $mod+Return exec kitty
 
 # Run at Startup
