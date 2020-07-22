@@ -1,3 +1,20 @@
+#+TITLE: i3 Configuration File
+#+DESCRIPTION: My i3 configuration file in org mode
+#+PROPERTY: header-args :tangle config
+#+AUTHOR: Michael Zappa
+
+* Table of Contents :toc:
+- [[#defaults][Defaults]]
+- [[#gaps][Gaps]]
+- [[#colors][Colors]]
+- [[#bar][Bar]]
+- [[#application-keybindings][Application Keybindings]]
+- [[#startup-commands][Startup Commands]]
+- [[#keyboard][Keyboard]]
+
+* Defaults
+Basic settings for my configuration and aspects of the default configuration.
+#+BEGIN_SRC conf
 set $mod Mod4
 font pango:System San Franciso Display 12
 
@@ -144,7 +161,9 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
+#+END_SRC
+* Gaps
+#+BEGIN_SRC conf
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 2
 
@@ -202,6 +221,10 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+#+END_SRC
+
+* Colors
+#+BEGIN_SRC conf
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -215,7 +238,10 @@ client.focused          $bg-color           $bg-color          $text-color      
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  $accent-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $accent-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $accent-color
+#+END_SRC
 
+* Bar
+#+BEGIN_SRC conf
 bar {
       mode invisible
       status_command i3blocks -c ~/.config/i3blocks/config
@@ -229,19 +255,29 @@ bar {
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
+#+END_SRC
 
+* Application Keybindings
+#+BEGIN_SRC conf
 bindsym $mod+n exec thunar
 bindsym $mod+x exec firefox
 bindsym $mod+c exec code
 bindsym $mod+m exec emacs
 bindsym $mod+Return exec kitty
+#+END_SRC
 
+* Startup Commands
+#+BEGIN_SRC conf
 exec nitrogen --restore
 exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
 #exec redshift
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec conky
+#+END_SRC
 
+* Keyboard
+#+BEGIN_SRC conf
 exec_always setxkbmap -layout us
 bindsym Ctrl+Mod1+k exec $HOME/.scripts/change_keyboard_layout.sh
+#+END_SRC
