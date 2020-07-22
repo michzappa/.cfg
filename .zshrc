@@ -22,4 +22,5 @@ compinit
 
 # commands to run on startup
 neofetch
+# update my dotfiles from my github repo
 dotbare pull
