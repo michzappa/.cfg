@@ -1,6 +1,6 @@
 #+TITLE: Xmonad Configuration File
 #+DESCRIPTION: My XMonad Configuration in org mode
-#+PROPERTY:
+#+PROPERTY: header-args :tangle xmonad.hs
 #+AUTHOR: Michael Zappa
 
 * Imports

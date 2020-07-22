@@ -14,6 +14,12 @@ myStartupHook = do
       spawnOnce "nitrogen --restore &"
       spawnOnce "picom -f &"
 
+myManageHook :: Query (Endo WindowSet)
+myManageHook = composeAll
+  [
+    manageDocks
+  ]
+
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X())
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -26,7 +32,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ]
     ++
 
-    -- Volume, Brightness Manipulation and Keyboard Change 
+    -- Volume, Brightness Manipulation and Keyboard Change
     [
       ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
       ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
@@ -120,12 +126,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-myManageHook :: Query (Endo WindowSet)
-myManageHook = composeAll
-  [
-    manageDocks
-  ]
-      
 main :: IO ()
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -142,5 +142,5 @@ main = do
                         , ppUrgent = xmobarColor "yellow" "red"
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , keys               = myKeys
-        } 
+        , keys    = myKeys
+        }
