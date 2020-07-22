@@ -3,6 +3,8 @@
 #+PROPERTY: header-args :tangle config
 #+AUTHOR: Michael Zappa
 
+Run org-tangle-babel to repopulate the config file with your changes.
+
 * Table of Contents :toc:
 - [[#basic-settings-and-controls][Basic settings and controls]]
 - [[#volume-control][Volume Control]]
