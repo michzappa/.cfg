@@ -81,7 +81,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10: Spotify"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -93,7 +92,6 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -105,9 +103,6 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-
-for_window [class="Spotify"] move to workspace $ws10
 
 bindsym $mod+r mode "resize"
 
@@ -207,20 +202,6 @@ client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $accent-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $accent-color
 
-bar {
-      mode invisible
-      status_command i3blocks -c ~/.config/i3blocks/config
-      position top
-      colors {
-		background $bg-color
-      separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
-}
-
 bindsym $mod+n exec thunar
 bindsym $mod+x exec firefox
 bindsym $mod+c exec code
@@ -235,11 +216,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# wallpaper and compositor
 exec nitrogen --restore
-exec spotify
 exec picom -f --config $HOME/.config/picom/picom.conf
-#exec redshift
+
+# polybar launching
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+# conky for desktop information
 exec conky
 
 exec_always setxkbmap -layout us
