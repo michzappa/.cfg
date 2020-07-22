@@ -18,13 +18,26 @@ import qualified Data.Map        as M
 import Graphics.X11.ExtraTypes.XF86
 
 #+END_SRC
-* My hooks and keybindings
+* Startup Hook
 #+BEGIN_SRC haskell
 
 myStartupHook :: X ()
 myStartupHook = do
       spawnOnce "nitrogen --restore &"
       spawnOnce "picom -f &"
+#+END_SRC
+* Manage Hook
+#+BEGIN_SRC haskell
+
+myManageHook :: Query (Endo WindowSet)
+myManageHook = composeAll
+  [
+    manageDocks
+  ]
+
+#+END_SRC
+* Keybindings
+#+BEGIN_SRC haskell
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X())
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -132,13 +145,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-myManageHook :: Query (Endo WindowSet)
-myManageHook = composeAll
-  [
-    manageDocks
-  ]
-
 #+END_SRC
+
 * Main
 #+BEGIN_SRC haskell
 
@@ -158,7 +166,7 @@ main = do
                         , ppUrgent = xmobarColor "yellow" "red"
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , keys               = myKeys
+        , keys    = myKeys
         }
 
 #+END_SRC
