@@ -3,6 +3,13 @@
 #+PROPERTY: header-args :tangle xmonad.hs
 #+AUTHOR: Michael Zappa
 
+* TABLE OF CONTENTS :toc:
+- [[#imports][Imports]]
+- [[#startup-hook][Startup Hook]]
+- [[#manage-hook][Manage Hook]]
+- [[#keybindings][Keybindings]]
+- [[#main][Main]]
+
 * Imports
 #+BEGIN_SRC haskell
 
