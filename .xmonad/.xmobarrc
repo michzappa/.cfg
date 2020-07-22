@@ -1,4 +1,4 @@
-Config { 
+Config {
 
    -- appearance
      font =         "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
@@ -19,11 +19,12 @@ Config {
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
+   , template = " %StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork%}{ %default:Master% | %date% || %kbd% "
 
    , commands =
-         
-        [       
-          --volume monitor     
+
+        [
+          --volume monitor
           Run Volume "default" "Master" [] 5,
 
         -- network activity monitor (dynamic interface resolution)
@@ -52,7 +53,7 @@ Config {
                              , "--normal"   , "#7895b3" -- , "darkorange"
                              , "--high"     , "#7895b3" -- , "darkred"
                              ] 50
-                          
+
         -- memory usage monitor
         , Run Memory         [ "--template" ,"Mem: <usedratio>%"
                              , "--Low"      , "20"        -- units: %
@@ -79,7 +80,7 @@ Config {
                                        , "-i"	, "<fc=#7895b3>Charged</fc>"
                              ] 50
 
-        -- time and date indicator 
+        -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
 
@@ -89,5 +90,4 @@ Config {
                              ]
         , Run StdinReader
         ]
-        , template = " %StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork%}{ %default:Master% | %date% || %kbd% "
    }
