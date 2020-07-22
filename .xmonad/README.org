@@ -3,6 +3,8 @@
 #+PROPERTY: header-args :tangle xmonad.hs
 #+AUTHOR: Michael Zappa
 
+Run org-babel-tangle to repopulate the xmonad.hs and .xmobarrc files with your changes.
+
 * TABLE OF CONTENTS :toc:
 - [[#imports][Imports]]
 - [[#startup-hook][Startup Hook]]
