@@ -45,6 +45,7 @@ myStartupHook = do
       spawnOnce "picom -f" >> addEWMHFullscreen
       spawnOnce "nm-applet"
       spawnOnce "blueman-applet"
+      spawnOnce "~/.scripts/toggle_trayer.sh"
 #+END_SRC
 * Fullscreen Support
 Thanks to https://github.com/xmonad/xmonad-contrib/issues/183#issuecomment-307407822
