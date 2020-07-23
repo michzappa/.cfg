@@ -127,4 +127,5 @@ main = do
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         , keys    = customKeys myDeletedKeys myInsertedKeys
         , workspaces = myWorkspaces
+        , borderWidth = 0
         }
