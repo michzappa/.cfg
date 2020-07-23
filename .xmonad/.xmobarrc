@@ -19,7 +19,7 @@ Config {
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
-   , template = " %StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork%}{ %default:Master% | %date% || %kbd% "
+   , template = " %StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork%}{ | %default:Master% | %date% || %kbd% "
 
    , commands =
         [
