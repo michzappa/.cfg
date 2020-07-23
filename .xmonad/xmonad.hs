@@ -9,11 +9,30 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Util.CustomKeys
+import XMonad.Hooks.EwmhDesktops
+import Control.Monad (when, join)
+import Data.Maybe (maybeToList)
 
 myStartupHook :: X ()
 myStartupHook = do
-      spawnOnce "nitrogen --restore &"
-      spawnOnce "picom -f &"
+      spawnOnce "nitrogen --restore"
+      spawnOnce "picom -f" >> addEWMHFullscreen
+
+addEWMHFullscreen :: X ()
+addEWMHFullscreen   = do
+    wms <- getAtom "_NET_WM_STATE"
+    wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
+    mapM_ addNETSupported [wms, wfs]
+
+addNETSupported :: Atom -> X ()
+addNETSupported x   = withDisplay $ \dpy -> do
+    r               <- asks theRoot
+    a_NET_SUPPORTED <- getAtom "_NET_SUPPORTED"
+    a               <- getAtom "ATOM"
+    liftIO $ do
+       sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
+       when (fromIntegral x `notElem` sup) $
+         changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
 
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
@@ -93,11 +112,12 @@ main :: IO ()
 main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
 
-    xmonad $ docks def
+    xmonad $ ewmh $ docks def
         { terminal = "kitty"
         , startupHook        = myStartupHook
         , manageHook = myManageHook <+> manageHook def
         , layoutHook = avoidStruts  $  layoutHook def
+        , handleEventHook = fullscreenEventHook <+> handleEventHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppCurrent = xmobarColor "#7895b3" "" . wrap "[""]"
