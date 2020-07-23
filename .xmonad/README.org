@@ -212,13 +212,12 @@ Config {
 ** Commands
 #+BEGIN_SRC haskell :tangle .xmobarrc
    , commands =
-
         [
           --volume monitor
-          Run Volume "default" "Master" [] 5,
+          Run Volume "default" "Master" [] 5
 
         -- network activity monitor (dynamic interface resolution)
-         Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
                              , "--low"      , "#7895b3" -- , "darkgreen"
