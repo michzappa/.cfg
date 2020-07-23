@@ -17,6 +17,8 @@ myStartupHook :: X ()
 myStartupHook = do
       spawnOnce "nitrogen --restore"
       spawnOnce "picom -f" >> addEWMHFullscreen
+      spawnOnce "nm-applet"
+      spawnOnce "blueman-applet"
 
 addEWMHFullscreen :: X ()
 addEWMHFullscreen   = do
@@ -64,14 +66,16 @@ myInsertedKeys conf@(XConfig {modMask = modm}) =
     ]
     ++
 
-    -- Volume, Brightness Manipulation and Keyboard Change
+    -- Volume, Brightness Manipulation, Keyboard and Systray Change
     [
       ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
       ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
       ((0, xF86XK_AudioMute       ), spawn "amixer set Master toggle"),
       ((0, xF86XK_MonBrightnessDown), spawn "$HOME/.scripts/decrement_screen_brightness.sh"),
       ((0, xF86XK_MonBrightnessUp), spawn "$HOME/.scripts/increment_screen_brightness.sh"),
-      ((mod1Mask .|.  controlMask, xK_k), spawn "~/.scripts/change_keyboard_layout.sh")
+      ((mod1Mask .|.  controlMask, xK_k), spawn "~/.scripts/change_keyboard_layout.sh"),
+      ((mod1Mask .|. controlMask, xK_b), spawn
+      "~/.scripts/toggle_trayer.sh")
     ]
     ++
 
