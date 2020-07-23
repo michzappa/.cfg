@@ -1,0 +1,23 @@
+#+TITLE:dotfiles for my arch linux system
+#+AUTHOR: Michael Zappa
+
+* Managed by dotbare https://github.com/kazhala/dotbare
+
+* Required packages:
+- xfce4, lightdm, lightdm-gtk-greeting, rofi, picom, nitrogen, kitty
+- i3-gaps, polybar
+- xmonad, xmonad-contrib, xmobar, trayer
+- emacs (for tangling org-mode config files)
+** Arch Repositories
+- xfce4
+- lightdm, lightdm-gtk-greeting
+- rofi
+- trayer
+- picom
+- nitrogen
+- kitty
+- i3-gaps
+- xmonad, xmonad-contrib
+- emacs (for editing org-mode config files)
+** Arch User Repository
+- polybar
