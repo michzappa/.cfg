@@ -45,6 +45,7 @@ myStartupHook = do
       spawnOnce "picom -f" >> addEWMHFullscreen
 #+END_SRC
 * Fullscreen Support
+Thanks to https://github.com/xmonad/xmonad-contrib/issues/183#issuecomment-307407822
 #+BEGIN_SRC haskell
 addEWMHFullscreen :: X ()
 addEWMHFullscreen   = do
