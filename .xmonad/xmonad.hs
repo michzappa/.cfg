@@ -71,6 +71,23 @@ myInsertedKeys conf@(XConfig {modMask = modm}) =
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_z     ), io (exitWith ExitSuccess))
     ]
+    ++
+
+    [
+      ((modm, key), (windows $ W.greedyView ws))
+      | (key, ws) <- myExtraWorkspaces
+    ]
+    ++
+
+    [
+      ((modm .|. shiftMask, key), (windows $ W.shift ws))
+      | (key, ws) <- myExtraWorkspaces
+    ]
+
+myExtraWorkspaces :: [(KeySym, WorkspaceId)]
+myExtraWorkspaces = [(xK_0, "0")]
+myWorkspaces :: [WorkspaceId]
+myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
 
 main :: IO ()
 main = do
@@ -89,4 +106,5 @@ main = do
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         , keys    = customKeys myDeletedKeys myInsertedKeys
+        , workspaces = myWorkspaces
         }

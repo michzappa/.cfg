@@ -11,6 +11,7 @@ Run org-babel-tangle to repopulate the xmonad.hs and .xmobarrc files with your c
 - [[#manage-hook][Manage Hook]]
 - [[#deleted-keys][Deleted Keys]]
 - [[#inserted-keys][Inserted Keys]]
+- [[#workspaces][Workspaces]]
 - [[#main][Main]]
 - [[#xmobar-config][XMobar Config]]
   - [[#fields][Fields]]
@@ -107,6 +108,26 @@ myInsertedKeys conf@(XConfig {modMask = modm}) =
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_z     ), io (exitWith ExitSuccess))
     ]
+    ++
+
+    [
+      ((modm, key), (windows $ W.greedyView ws))
+      | (key, ws) <- myExtraWorkspaces
+    ]
+    ++
+
+    [
+      ((modm .|. shiftMask, key), (windows $ W.shift ws))
+      | (key, ws) <- myExtraWorkspaces
+    ]
+#+END_SRC
+* Workspaces
+Manual control over my workspace names and assigned keys.
+#+BEGIN_SRC haskell
+myExtraWorkspaces :: [(KeySym, WorkspaceId)]
+myExtraWorkspaces = [(xK_0, "0")]
+myWorkspaces :: [WorkspaceId]
+myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
 #+END_SRC
 * Main
 #+BEGIN_SRC haskell
@@ -128,6 +149,7 @@ main = do
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         , keys    = customKeys myDeletedKeys myInsertedKeys
+        , workspaces = myWorkspaces
         }
 
 #+END_SRC
