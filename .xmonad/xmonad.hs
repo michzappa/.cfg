@@ -72,8 +72,8 @@ myInsertedKeys conf@(XConfig {modMask = modm}) =
       ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
       ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
       ((0, xF86XK_AudioMute       ), spawn "amixer set Master toggle"),
-      ((0, xF86XK_MonBrightnessDown), spawn "$HOME/.scripts/decrement_screen_backlight.sh"),
-      ((0, xF86XK_MonBrightnessUp), spawn "$HOME/.scripts/increment_screen_backlight.sh"),
+      ((0, xF86XK_MonBrightnessDown), spawn "light -U 10"),
+      ((0, xF86XK_MonBrightnessUp), spawn "light -A 10"),
       ((mod1Mask .|.  controlMask, xK_k), spawn "~/.scripts/change_keyboard_layout.sh"),
       ((mod1Mask .|. controlMask, xK_b), spawn
       "~/.scripts/toggle_trayer.sh")

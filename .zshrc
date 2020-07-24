@@ -1,6 +1,8 @@
 export PATH=~/.emacs.d/bin:$PATH
 export PS1="%n@%M %~ %% "
 
+alias brighten="~/.scripts/increment_screen_backlight.sh"
+alias dim="~/.scripts/decrement_screen_backlight.sh"
 # zplug
 source ~/.zplug/init.zsh
 zplug "kazhala/dotbare"
