@@ -12,7 +12,8 @@ https://github.com/kazhala/dotbare
 - trayer
 - picom
 - nitrogen
-- kitty
+- kitty (or other terminal emulator, but will need to be substituted in multiple places)
+- light
 - i3-gaps
 - xmonad, xmonad-contrib
 - emacs (for editing and tangling org-mode config files)
