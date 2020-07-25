@@ -45,6 +45,7 @@ myStartupHook = do
       spawnOnce "picom -f" >> addEWMHFullscreen
       spawnOnce "nm-applet"
       spawnOnce "blueman-applet"
+      spawnOnce "pasystray"
       spawnOnce "~/.scripts/toggle_trayer.sh"
 #+END_SRC
 * Fullscreen Support
