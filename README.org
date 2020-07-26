@@ -10,12 +10,15 @@ https://github.com/kazhala/dotbare
 - lightdm, lightdm-gtk-greeting
 - rofi
 - trayer
+- network-manager-applet
+- blueman
+- pasystray, pavucontrol
 - picom
 - nitrogen
-- kitty (or other terminal emulator, but will need to be substituted in multiple places)
+- kitty
 - light
 - i3-gaps
-- xmonad, xmonad-contrib
+- xmonad, xmonad-contrib, xmobar
 - emacs (for editing and tangling org-mode config files)
 ** Arch User Repository
 - polybar
