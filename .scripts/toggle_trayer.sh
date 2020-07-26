@@ -7,11 +7,11 @@ else
     trayer \
         --align right \
         --edge top \
-        --width 20 \
+        --width 3 \
         --height 19 \
         --distancefrom right \
         --distance 360 \
-        --tint black \
+        --tint 0x2E3440 \
         --transparent true \
         --alpha 0
 fi

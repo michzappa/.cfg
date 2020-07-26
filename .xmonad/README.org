@@ -281,13 +281,10 @@ main = do
 Config {
 
    -- appearance
-     font =         "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
-   , bgColor =      "black"
+     font =         "xft:System San Fransisco Display:pixelsize=14:antialias=true:hinting=true"
+   , bgColor =      "#2E3440"
    , fgColor =      "#ECEFF4"
    , position =     Top
-   , border =       BottomB
-   , borderColor =  "#646464"
-
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
