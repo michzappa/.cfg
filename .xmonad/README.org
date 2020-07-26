@@ -363,7 +363,7 @@ Config {
         , Run Date           "<fc=#ECEFF4>%F (%a) %T</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(intl)" , "<fc=#88C0D0>INTL</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=#88C0D0>INT</fc>")
                              , ("us"         , "<fc=#88C0D0>US</fc>")
                              ]
         , Run StdinReader
