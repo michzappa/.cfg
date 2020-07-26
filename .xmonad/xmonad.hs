@@ -44,6 +44,8 @@ myManageHook = composeAll
     manageDocks
   ]
 
+myLayoutHook = avoidStruts $ layoutHook def
+
 myDeletedKeys :: XConfig l -> [(KeyMask, KeySym)]
 myDeletedKeys XConfig {modMask = modm} =
     [
@@ -122,7 +124,7 @@ main = do
         { terminal = "kitty"
         , startupHook        = myStartupHook
         , manageHook = myManageHook <+> manageHook def
-        , layoutHook = avoidStruts  $  layoutHook def
+        , layoutHook = myLayoutHook
         , handleEventHook = fullscreenEventHook <+> handleEventHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc

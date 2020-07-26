@@ -10,6 +10,7 @@ Run org-babel-tangle to repopulate the xmonad.hs and .xmobarrc files with your c
 - [[#startup-hook][Startup Hook]]
 - [[#fullscreen-support][Fullscreen Support]]
 - [[#manage-hook][Manage Hook]]
+- [[#layout-hook][Layout Hook]]
 - [[#deleted-keys][Deleted Keys]]
 - [[#inserted-keys][Inserted Keys]]
 - [[#workspaces][Workspaces]]
@@ -78,6 +79,10 @@ myManageHook = composeAll
 
 #+END_SRC
 
+* Layout Hook
+#+BEGIN_SRC haskell
+myLayoutHook = avoidStruts $ layoutHook def
+#+END_SRC
 * Deleted Keys
 Deleted default keybindings, to be replaced by my custom keybindings or removed because I dislike them.
 #+BEGIN_SRC haskell
@@ -169,7 +174,7 @@ main = do
         { terminal = "kitty"
         , startupHook        = myStartupHook
         , manageHook = myManageHook <+> manageHook def
-        , layoutHook = avoidStruts  $  layoutHook def
+        , layoutHook = myLayoutHook
         , handleEventHook = fullscreenEventHook <+> handleEventHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
