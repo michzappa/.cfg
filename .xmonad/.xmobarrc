@@ -3,7 +3,7 @@ Config {
    -- appearance
      font =         "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
    , bgColor =      "black"
-   , fgColor =      "#ABABAB"
+   , fgColor =      "#ECEFF4"
    , position =     Top
    , border =       BottomB
    , borderColor =  "#646464"
@@ -30,62 +30,62 @@ Config {
          , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "#7895b3" -- , "darkgreen"
-                             , "--normal"   , "#7895b3" -- , "darkorange"
-                             , "--high"     , "#7895b3" -- , "darkred"
+                             , "--low"      , "#88C0D0" -- , "darkgreen"
+                             , "--normal"   , "#88C0D0" -- , "darkorange"
+                             , "--high"     , "#88C0D0" -- , "darkred"
                              ] 10
 
         -- cpu activity monitor
         , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
-                             , "--low"      , "#7895b3" -- , "darkgreen"
-                             , "--normal"   , "#7895b3" -- , "darkorange"
-                             , "--high"     , "#7895b3" -- , "darkred"
+                             , "--low"      , "#88C0D0" -- , "darkgreen"
+                             , "--normal"   , "#88C0D0" -- , "darkorange"
+                             , "--high"     , "#88C0D0" -- , "darkred"
                              ] 10
 
         -- cpu core temperature monitor
         , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#7895b3" -- , "darkgreen"
-                             , "--normal"   , "#7895b3" -- , "darkorange"
-                             , "--high"     , "#7895b3" -- , "darkred"
+                             , "--low"      , "#88C0D0" -- , "darkgreen"
+                             , "--normal"   , "#88C0D0" -- , "darkorange"
+                             , "--high"     , "#88C0D0" -- , "darkred"
                              ] 50
 
         -- memory usage monitor
         , Run Memory         [ "--template" ,"Mem: <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
-                             , "--low"      , "#7895b3" -- , "darkgreen"
-                             , "--normal"   , "#7895b3" -- , "darkorange"
-                             , "--high"     , "#7895b3" -- , "darkred"
+                             , "--low"      , "#88C0D0" -- , "darkgreen"
+                             , "--normal"   , "#88C0D0" -- , "darkorange"
+                             , "--high"     , "#88C0D0" -- , "darkred"
                              ] 10
 
         -- battery monitor
         , Run Battery        [ "--template" , "Batt: <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "#7895b3" -- , "darkred"
-                             , "--normal"   , "#7895b3" -- , "darkorange"
-                             , "--high"     , "#7895b3" -- , "darkgreen"
+                             , "--low"      , "#88C0D0" -- , "darkred"
+                             , "--normal"   , "#88C0D0" -- , "darkorange"
+                             , "--high"     , "#88C0D0" -- , "darkgreen"
 
                              , "--" -- battery specific options
                                        -- discharging status
                                        , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#7895b3>Charging</fc>"
+                                       , "-O"	, "<fc=#88C0D0>Charging</fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#7895b3>Charged</fc>"
+                                       , "-i"	, "<fc=#88C0D0>Charged</fc>"
                              ] 50
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ECEFF4>%F (%a) %T</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(intl)" , "<fc=#7895b3>INTL</fc>")
-                             , ("us"         , "<fc=#7895b3>US</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=#88C0D0>INTL</fc>")
+                             , ("us"         , "<fc=#88C0D0>US</fc>")
                              ]
         , Run StdinReader
         ]

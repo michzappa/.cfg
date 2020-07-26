@@ -168,7 +168,7 @@ myKeys =
     [ ("M-<Return>", spawn myTerminal)
 
     -- launch rofi (application launcher)
-    , ("M-/", spawn "rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme $HOME/.config/rofi/arc-dark")
+    , ("M-/", spawn "rofi -show run -theme $HOME/.config/rofi/nord")
 
     -- close focused window
     , ("M-S-q", kill)
