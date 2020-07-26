@@ -12,6 +12,10 @@ import XMonad.Util.CustomKeys
 import XMonad.Hooks.EwmhDesktops
 import Control.Monad (when, join)
 import Data.Maybe (maybeToList)
+import XMonad.Util.EZConfig (additionalKeysP)
+
+myTerminal :: String
+myTerminal = "kitty"
 
 myStartupHook :: X ()
 myStartupHook = do
@@ -46,73 +50,63 @@ myManageHook = composeAll
 
 myLayoutHook = avoidStruts $ layoutHook def
 
-myDeletedKeys :: XConfig l -> [(KeyMask, KeySym)]
-myDeletedKeys XConfig {modMask = modm} =
+myKeys :: [(String, X ())]
+myKeys =
     [
-      (modm, xK_Return) -- was swap focused window with master, now open terminal
-    , (modm .|. shiftMask, xK_Return) -- was open terminal, now swap focused window with master
-    , (modm, xK_p) -- was open prompt
-    , (modm .|. shiftMask, xK_q) -- was quit XMonad, now close focused window
-    , (modm, xK_comma) -- was increment number of windows in master area
-    , (modm, xK_period) -- was decrement number of windows in master area
-    , (modm, xK_m) -- was move focus to master window, now open emacs
-
+      ("M-q", spawn "xmonad --recompile; xmonad --restart")
     ]
-
-myInsertedKeys :: XConfig l -> [((KeyMask, KeySym), X ())]
-myInsertedKeys conf@(XConfig {modMask = modm}) =
+    ++
     -- Application Shortcuts
     [
-      ((modm, xK_x), spawn "firefox"),
-      ((modm, xK_c), spawn "code"),
-      ((modm, xK_n), spawn "thunar"),
-      ((modm, xK_m), spawn "emacs")
+      ("M-x", spawn "firefox"),
+      ("M-c", spawn "code"),
+      ("M-n", spawn "thunar"),
+      ("M-m", spawn "emacs")
     ]
     ++
 
     -- Volume, Brightness Manipulation, Keyboard and Systray Change
     [
-      ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5%-"),
-      ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5%+"),
-      ((0, xF86XK_AudioMute       ), spawn "amixer sset Master toggle"),
-      ((0, xF86XK_MonBrightnessDown), spawn "light -U 10"),
-      ((0, xF86XK_MonBrightnessUp), spawn "light -A 10"),
-      ((mod1Mask .|.  controlMask, xK_k), spawn "~/.scripts/change_keyboard_layout.sh"),
-      ((mod1Mask .|. controlMask, xK_b), spawn
-      "~/.scripts/toggle_trayer.sh")
+      ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-"),
+      ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 5%+"),
+      ("<XF86AudioMute>", spawn "amixer sset Master toggle"),
+      ("<XF86MonBrightnessDown>", spawn "light -U 10"),
+      ("<XF86MonBrightnessUp>", spawn "light -A 10"),
+      ("M-C-k", spawn "~/.scripts/change_keyboard_layout.sh"),
+      ("M-C-b", spawn "~/.scripts/toggle_trayer.sh")
     ]
     ++
 
     -- launch a terminal
-    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
+    [ ("M-<Return>", spawn myTerminal)
 
     -- launch rofi (application launcher)
-    , ((modm,               xK_slash     ), spawn "rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme $HOME/.config/rofi/arc-dark")
+    , ("M-/", spawn "rofi -show run -lines 5 -eh 2 -width 20 -padding 10 -theme $HOME/.config/rofi/arc-dark")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_q     ), kill)
+    , ("M-S-q", kill)
 
     -- Swap the focused window and the master window
-    , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
+    , ("M-S-<Return>", windows W.swapMaster)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_z     ), io (exitWith ExitSuccess))
+    , ("M-S-z", io (exitWith ExitSuccess))
     ]
     ++
 
     [
-      ((modm, key), (windows $ W.greedyView ws))
+      ("M-" ++ key, (windows $ W.greedyView ws))
       | (key, ws) <- myExtraWorkspaces
     ]
     ++
 
     [
-      ((modm .|. shiftMask, key), (windows $ W.shift ws))
+      ("M-S-" ++ key, (windows $ W.shift ws))
       | (key, ws) <- myExtraWorkspaces
     ]
 
-myExtraWorkspaces :: [(KeySym, WorkspaceId)]
-myExtraWorkspaces = [(xK_0, "0")]
+myExtraWorkspaces :: [(String, WorkspaceId)]
+myExtraWorkspaces = [("0", "0")]
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
 
@@ -121,7 +115,7 @@ main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
 
     xmonad $ ewmh $ docks def
-        { terminal = "kitty"
+        { terminal = myTerminal
         , startupHook        = myStartupHook
         , manageHook = myManageHook <+> manageHook def
         , layoutHook = myLayoutHook
@@ -133,7 +127,7 @@ main = do
                         , ppUrgent = xmobarColor "yellow" "red"
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , keys    = customKeys myDeletedKeys myInsertedKeys
+        --, keys    = customKeys myDeletedKeys myInsertedKeys
         , workspaces = myWorkspaces
         , borderWidth = 0
-        }
+        } `additionalKeysP` myKeys
