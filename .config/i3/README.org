@@ -225,12 +225,12 @@ mode "$mode_gaps_outer" {
 
 * Colors
 #+BEGIN_SRC conf
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
+set $bg-color 	         #2E3440
+set $inactive-bg-color   #2E3440
+set $text-color          #ECEFF4
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $accent-color        #7895b3
+set $accent-color        #88C0d0
 
 # window colors
 #                       border              background         text                 indicator
@@ -247,6 +247,7 @@ bindsym $mod+x exec firefox
 bindsym $mod+c exec code
 bindsym $mod+m exec emacs
 bindsym $mod+Return exec kitty
+bindsym $mod+slash exec rofi -show run -theme $HOME/.config/rofi/nord
 #+END_SRC
 
 * Startup Commands
@@ -258,6 +259,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec pasystray
+exec blueman-applet
 
 # wallpaper and compositor
 exec nitrogen --restore
