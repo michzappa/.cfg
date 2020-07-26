@@ -36,6 +36,7 @@ import XMonad.Hooks.EwmhDesktops
 import Control.Monad (when, join)
 import Data.Maybe (maybeToList)
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Actions.Submap
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -87,14 +88,10 @@ myManageHook = composeAll
 myLayoutHook = avoidStruts $ layoutHook def
 #+END_SRC
 * Keys
-Additional keybindings for my configuration
+Additional keybindings for my configuration, using EZConfig notation.
 #+BEGIN_SRC haskell
 myKeys :: [(String, X ())]
 myKeys =
-    [
-      ("M-q", spawn "xmonad --recompile; xmonad --restart")
-    ]
-    ++
     -- Application Shortcuts
     [
       ("M-x", spawn "firefox"),
@@ -144,6 +141,10 @@ myKeys =
       | (key, ws) <- myExtraWorkspaces
     ]
 #+END_SRC
+
+#+RESULTS:
+: <interactive>:54:5: error: parse error on input ‘]’
+
 * Workspaces
 Manual control over my workspace names and assigned keys.
 #+BEGIN_SRC haskell

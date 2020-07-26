@@ -13,6 +13,7 @@ import XMonad.Hooks.EwmhDesktops
 import Control.Monad (when, join)
 import Data.Maybe (maybeToList)
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Actions.Submap
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -52,10 +53,6 @@ myLayoutHook = avoidStruts $ layoutHook def
 
 myKeys :: [(String, X ())]
 myKeys =
-    [
-      ("M-q", spawn "xmonad --recompile; xmonad --restart")
-    ]
-    ++
     -- Application Shortcuts
     [
       ("M-x", spawn "firefox"),
