@@ -19,6 +19,9 @@ import XMonad.Prompt.FuzzyMatch
 import Control.Arrow (first)
 import qualified XMonad.Actions.TreeSelect as TS
 import Data.Tree
+import XMonad.Layout.Grid
+import XMonad.Layout.Spacing
+
 myTerminal :: String
 myTerminal = "kitty"
 
@@ -187,7 +190,15 @@ myManageHook = composeAll
     manageDocks
   ]
 
-myLayoutHook = avoidStruts $ layoutHook def
+--myLayoutHook = avoidStruts $ layoutHook def
+myLayoutHook = avoidStruts $ myLayouts
+
+myTall = Tall 1 (3/100) (1/2)
+myGrid = Grid
+myFull = Full
+myMirror = Mirror (Tall 1 (3/100) (3/5))
+
+myLayouts = spacing 5 $ myTall ||| myGrid ||| myFull ||| myMirror
 
 myKeys :: [(String, X ())]
 myKeys =
