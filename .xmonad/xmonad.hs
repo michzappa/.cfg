@@ -197,7 +197,7 @@ myKeys =
       ("M-c", spawn "code"),
       ("M-n", spawn "thunar"),
       ("M-m", spawn "emacs"),
-      ("M-t", treeselectAction)
+      ("M-S-/", treeselectAction)
     ]
     ++
 
