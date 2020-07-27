@@ -17,7 +17,8 @@ import qualified XMonad.Actions.Search as S
 import XMonad.Prompt
 import XMonad.Prompt.FuzzyMatch
 import Control.Arrow (first)
-
+import qualified XMonad.Actions.TreeSelect as TS
+import Data.Tree
 myTerminal :: String
 myTerminal = "kitty"
 
@@ -133,6 +134,53 @@ searchList = [ ("a", archwiki)
              , ("z", S.amazon)
              ]
 
+treeselectAction = TS.treeselectAction myTreeConfig
+   [ Node (TS.TSNode "Keyboard" "" (return ()))
+     [
+       Node (TS.TSNode "US Default Keyboard" "" (spawn "setxkbmap -layout us")) []
+     , Node (TS.TSNode "US International Keyboard" "" (spawn "setxkbmap -layout 'us(intl)'")) []
+     ]
+   , Node (TS.TSNode "Shutdown" "" (spawn "shutdown now")) []
+   , Node (TS.TSNode "Restart" "" (spawn "reboot")) []
+   , Node (TS.TSNode "Redshift" "" (return ()))
+     [
+       Node (TS.TSNode "Full" "" (spawn "redshift -O 3500")) []
+     , Node (TS.TSNode "Off" "" (spawn "redshift -x")) []
+     ]
+   ]
+
+myTreeConfig :: TS.TSConfig a
+myTreeConfig = TS.TSConfig { TS.ts_hidechildren = True
+                              , TS.ts_background   = 0xd02E3440
+                              , TS.ts_font         = myFont
+                              , TS.ts_node         = (0xffd0d0d0, 0xd02E3440)
+                              , TS.ts_nodealt      = (0xffd0d0d0, 0xd02E3440)
+                              , TS.ts_highlight    = (0xff88C0D0, 0xff2E3440)
+                              , TS.ts_extra        = 0xffd0d0d0
+                              , TS.ts_node_width   = 200
+                              , TS.ts_node_height  = 20
+                              , TS.ts_originX      = 0
+                              , TS.ts_originY      = 0
+                              , TS.ts_indent       = 80
+                              , TS.ts_navigate     = myTreeNavigation
+                              }
+
+myTreeNavigation = M.fromList
+    [ ((0, xK_Escape),   TS.cancel)
+    , ((0, xK_Return),   TS.select)
+    , ((0, xK_space),    TS.select)
+    , ((0, xK_Up),       TS.movePrev)
+    , ((0, xK_Down),     TS.moveNext)
+    , ((0, xK_Left),     TS.moveParent)
+    , ((0, xK_Right),    TS.moveChild)
+    , ((0, xK_k),        TS.movePrev)
+    , ((0, xK_j),        TS.moveNext)
+    , ((0, xK_h),        TS.moveParent)
+    , ((0, xK_l),        TS.moveChild)
+    , ((0, xK_o),        TS.moveHistBack)
+    , ((0, xK_i),        TS.moveHistForward)
+    ]
+
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
   [
@@ -148,7 +196,8 @@ myKeys =
       ("M-x", spawn "firefox"),
       ("M-c", spawn "code"),
       ("M-n", spawn "thunar"),
-      ("M-m", spawn "emacs")
+      ("M-m", spawn "emacs"),
+      ("M-t", treeselectAction)
     ]
     ++
 
