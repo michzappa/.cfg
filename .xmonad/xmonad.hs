@@ -211,7 +211,7 @@ main = do
         , handleEventHook = fullscreenEventHook <+> handleEventHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppCurrent = xmobarColor "#7895b3" "" . wrap "[""]"
+                        , ppCurrent = xmobarColor "#88C0D0" "" . wrap "[""]"
                         , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
                         , ppUrgent = xmobarColor "yellow" "red"
                         }
