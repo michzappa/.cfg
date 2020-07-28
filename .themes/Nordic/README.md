@@ -1,4 +1,6 @@
 
+From: https://github.com/EliverLara/Nordic
+
 ![](Art/nordic.png)
 
 > Nordic is a Gtk3.20+ theme created using the awesome [Nord](https://github.com/arcticicestudio/nord) color pallete.
