@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/env/bin bash
 CURRENT=`~/.scripts/get_current_keyboard_layout.sh`
 
 if [ $CURRENT = 'us' ]
