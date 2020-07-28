@@ -21,6 +21,7 @@ import qualified XMonad.Actions.TreeSelect as TS
 import Data.Tree
 import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
+import XMonad.Layout.Renamed
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -198,7 +199,7 @@ myGrid = Grid
 myFull = Full
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
-myLayouts = spacing 5 $ myTall ||| myGrid ||| myFull ||| myMirror
+myLayouts = renamed [CutWordsLeft 1] $ spacing 5 $ myTall ||| myGrid ||| myFull ||| myMirror
 
 myKeys :: [(String, X ())]
 myKeys =
