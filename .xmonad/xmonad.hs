@@ -1,28 +1,35 @@
 import XMonad
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import Data.Monoid
 import System.Exit
+import qualified XMonad.StackSet as W
+
+import Data.Monoid
+import qualified Data.Map        as M
+import Data.Maybe (maybeToList)
+import Data.Tree
+
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
-import Graphics.X11.ExtraTypes.XF86
-import XMonad.Hooks.EwmhDesktops
-import Control.Monad (when, join)
-import Data.Maybe (maybeToList)
 import XMonad.Util.EZConfig (additionalKeysP)
-import XMonad.Actions.Submap
-import qualified XMonad.Actions.Search as S
-import XMonad.Prompt
-import XMonad.Prompt.FuzzyMatch
-import Control.Arrow (first)
-import qualified XMonad.Actions.TreeSelect as TS
-import Data.Tree
+
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.DynamicProperty
+
 import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
-import XMonad.Hooks.DynamicProperty
+
+import qualified XMonad.Actions.Search as S
+import qualified XMonad.Actions.TreeSelect as TS
+
+import XMonad.Prompt
+import XMonad.Prompt.FuzzyMatch
+
+import Control.Monad (when, join)
+import Control.Arrow (first)
+
+
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -52,7 +59,6 @@ myHandleEventHook = fullscreenEventHook <+> spotifyEventHook
 spotifyEventHook :: Event -> X All
 spotifyEventHook = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "0")
 
---myLayoutHook = avoidStruts $ layoutHook def
 myLayoutHook = avoidStruts $ myLayouts
 
 myTall = Tall 1 (3/100) (1/2)
@@ -118,6 +124,7 @@ myKeys =
 
 myExtraWorkspaces :: [(String, WorkspaceId)]
 myExtraWorkspaces = [("0", "0")]
+
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
 
