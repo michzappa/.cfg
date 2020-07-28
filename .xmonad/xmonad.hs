@@ -54,6 +54,7 @@ myManageHook = composeAll
   , manageDocks
   ]
 
+myHandleEventHook :: Event -> X All
 myHandleEventHook = fullscreenEventHook <+> spotifyEventHook
 
 spotifyEventHook :: Event -> X All
@@ -61,9 +62,16 @@ spotifyEventHook = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShi
 
 myLayoutHook = avoidStruts $ myLayouts
 
+myTall :: Tall a
 myTall = Tall 1 (3/100) (1/2)
+
+myGrid :: Grid a
 myGrid = Grid
+
+myFull :: Full a
 myFull = Full
+
+myMirror :: Mirror Tall a
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
 myLayouts = renamed [CutWordsLeft 1] $ spacing 5 $ myTall ||| myGrid ||| myFull ||| myMirror
@@ -228,6 +236,7 @@ searchList = [ ("a", archwiki)
              , ("z", S.amazon)
              ]
 
+treeselectAction :: X()
 treeselectAction = TS.treeselectAction myTreeConfig
    [ Node (TS.TSNode "Keyboard" "" (return ()))
      [
