@@ -22,6 +22,7 @@ import Data.Tree
 import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
+import XMonad.Hooks.DynamicProperty
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -37,6 +38,88 @@ myStartupHook = do
       spawnOnce "blueman-applet"
       spawnOnce "pasystray"
       spawnOnce "~/.scripts/toggle_trayer.sh"
+      spawnOnce "spotify"
+
+myManageHook :: Query (Endo WindowSet)
+myManageHook = composeAll
+  [
+    className =? "Spotify" --> doShift "0"
+  , manageDocks
+  ]
+
+myHandleEventHook = fullscreenEventHook <+> spotifyEventHook
+
+spotifyEventHook :: Event -> X All
+spotifyEventHook = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "0")
+
+--myLayoutHook = avoidStruts $ layoutHook def
+myLayoutHook = avoidStruts $ myLayouts
+
+myTall = Tall 1 (3/100) (1/2)
+myGrid = Grid
+myFull = Full
+myMirror = Mirror (Tall 1 (3/100) (3/5))
+
+myLayouts = renamed [CutWordsLeft 1] $ spacing 5 $ myTall ||| myGrid ||| myFull ||| myMirror
+
+myKeys :: [(String, X ())]
+myKeys =
+    -- Application Shortcuts
+    [
+      ("M-x", spawn "firefox"),
+      ("M-c", spawn "code"),
+      ("M-n", spawn "thunar"),
+      ("M-m", spawn "emacs"),
+      ("M-S-/", treeselectAction)
+    ]
+    ++
+
+    -- Volume, Brightness Manipulation, Keyboard and Systray Change
+    [
+      ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-"),
+      ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 5%+"),
+      ("<XF86AudioMute>", spawn "amixer sset Master toggle"),
+      ("<XF86MonBrightnessDown>", spawn "light -U 10"),
+      ("<XF86MonBrightnessUp>", spawn "light -A 10"),
+      ("M-C-k", spawn "~/.scripts/change_keyboard_layout.sh"),
+      ("M-C-b", spawn "~/.scripts/toggle_trayer.sh")
+    ]
+    ++
+
+    -- launch a terminal
+    [ ("M-<Return>", spawn myTerminal)
+
+    -- launch rofi (application launcher)
+    , ("M-/", spawn "rofi -show run -theme $HOME/.config/rofi/nord")
+
+    -- close focused window
+    , ("M-S-q", kill)
+
+    -- Swap the focused window and the master window
+    , ("M-S-<Return>", windows W.swapMaster)
+
+    -- Quit xmonad
+    , ("M-S-z", io (exitWith ExitSuccess))
+    ]
+    ++
+
+    [
+      ("M-" ++ key, (windows $ W.greedyView ws))
+      | (key, ws) <- myExtraWorkspaces
+    ]
+    ++
+
+    [
+      ("M-S-" ++ key, (windows $ W.shift ws))
+      | (key, ws) <- myExtraWorkspaces
+    ]
+    ++ [("M-s " ++ key, S.promptSearch myPromptConfig' engine) | (key, engine) <- searchList ]
+    ++ [("M-S-s " ++ key, S.selectSearch engine) | (key, engine) <- searchList ]
+
+myExtraWorkspaces :: [(String, WorkspaceId)]
+myExtraWorkspaces = [("0", "0")]
+myWorkspaces :: [WorkspaceId]
+myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
 
 addEWMHFullscreen :: X ()
 addEWMHFullscreen   = do
@@ -185,81 +268,6 @@ myTreeNavigation = M.fromList
     , ((0, xK_i),        TS.moveHistForward)
     ]
 
-myManageHook :: Query (Endo WindowSet)
-myManageHook = composeAll
-  [
-    manageDocks
-  ]
-
---myLayoutHook = avoidStruts $ layoutHook def
-myLayoutHook = avoidStruts $ myLayouts
-
-myTall = Tall 1 (3/100) (1/2)
-myGrid = Grid
-myFull = Full
-myMirror = Mirror (Tall 1 (3/100) (3/5))
-
-myLayouts = renamed [CutWordsLeft 1] $ spacing 5 $ myTall ||| myGrid ||| myFull ||| myMirror
-
-myKeys :: [(String, X ())]
-myKeys =
-    -- Application Shortcuts
-    [
-      ("M-x", spawn "firefox"),
-      ("M-c", spawn "code"),
-      ("M-n", spawn "thunar"),
-      ("M-m", spawn "emacs"),
-      ("M-S-/", treeselectAction)
-    ]
-    ++
-
-    -- Volume, Brightness Manipulation, Keyboard and Systray Change
-    [
-      ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-"),
-      ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 5%+"),
-      ("<XF86AudioMute>", spawn "amixer sset Master toggle"),
-      ("<XF86MonBrightnessDown>", spawn "light -U 10"),
-      ("<XF86MonBrightnessUp>", spawn "light -A 10"),
-      ("M-C-k", spawn "~/.scripts/change_keyboard_layout.sh"),
-      ("M-C-b", spawn "~/.scripts/toggle_trayer.sh")
-    ]
-    ++
-
-    -- launch a terminal
-    [ ("M-<Return>", spawn myTerminal)
-
-    -- launch rofi (application launcher)
-    , ("M-/", spawn "rofi -show run -theme $HOME/.config/rofi/nord")
-
-    -- close focused window
-    , ("M-S-q", kill)
-
-    -- Swap the focused window and the master window
-    , ("M-S-<Return>", windows W.swapMaster)
-
-    -- Quit xmonad
-    , ("M-S-z", io (exitWith ExitSuccess))
-    ]
-    ++
-
-    [
-      ("M-" ++ key, (windows $ W.greedyView ws))
-      | (key, ws) <- myExtraWorkspaces
-    ]
-    ++
-
-    [
-      ("M-S-" ++ key, (windows $ W.shift ws))
-      | (key, ws) <- myExtraWorkspaces
-    ]
-    ++ [("M-s " ++ key, S.promptSearch myPromptConfig' engine) | (key, engine) <- searchList ]
-    ++ [("M-S-s " ++ key, S.selectSearch engine) | (key, engine) <- searchList ]
-
-myExtraWorkspaces :: [(String, WorkspaceId)]
-myExtraWorkspaces = [("0", "0")]
-myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
-
 main :: IO ()
 main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
@@ -269,7 +277,7 @@ main = do
         , startupHook        = myStartupHook
         , manageHook = myManageHook <+> manageHook def
         , layoutHook = myLayoutHook
-        , handleEventHook = fullscreenEventHook <+> handleEventHook def
+        , handleEventHook = myHandleEventHook <+> handleEventHook def
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppCurrent = xmobarColor "#88C0D0" "" . wrap "[""]"
