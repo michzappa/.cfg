@@ -1,4 +1,4 @@
-#+TITLE:Dotfiles for my Arch Linux systems
+#+TITLE:Display System Configuration
 #+AUTHOR: Michael Zappa
 
 * Managed by dotbare
