@@ -12,11 +12,8 @@ export PS1="%n@%M %~ %% "
 
 alias brighten="~/.scripts/increment_screen_backlight.sh"
 alias dim="~/.scripts/decrement_screen_backlight.sh"
-# zplug
-source ~/.zplug/init.zsh
-zplug "kazhala/dotbare"
 
-zplug load
+source ~/.dotbare/dotbare.plugin.zsh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
