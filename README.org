@@ -7,7 +7,7 @@ https://github.com/kazhala/dotbare
 * Required packages:
 ** Arch Repositories
 - xfce4
-- lightdm, lightdm-gtk-greeting
+- lightdm, lightdm-gtk-greeter
 - rofi
 - trayer
 - network-manager-applet
