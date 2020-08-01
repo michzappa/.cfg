@@ -10,9 +10,9 @@ https://github.com/kazhala/dotbare
 - lightdm, lightdm-gtk-greeter
 - rofi
 - trayer
-- network-manager-applet
+- networkmanager, network-manager-applet
 - blueman
-- pasystray, pavucontrol
+- pulseaudio, pasystray, pavucontrol
 - picom
 - nitrogen
 - kitty
