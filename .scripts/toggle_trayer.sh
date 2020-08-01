@@ -7,7 +7,7 @@ else
     trayer \
         --align right \
         --edge top \
-        --width 3 \
+        --width 5 \
         --height 19 \
         --distancefrom right \
         --distance 360 \
