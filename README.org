@@ -4,7 +4,7 @@
 * Managed by dotbare
 https://github.com/kazhala/dotbare
 
-* Required packages:
+* Packages:
 ** Arch Repositories
 - xfce4
 - lightdm, lightdm-gtk-greeter
@@ -21,6 +21,11 @@ https://github.com/kazhala/dotbare
 - xmonad, xmonad-contrib, xmobar
 - emacs (for editing and tangling org-mode config files)
 - hplip, wget (for setting up HP network printer)
+- firefox
+- lxappearance
+- nvidia-lts
+- redshift
 ** Arch User Repository
 - polybar
 - spotify
+- optimus-manager-qt
