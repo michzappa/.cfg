@@ -23,7 +23,7 @@ https://github.com/kazhala/dotbare
 - cups, hplip, wget, system-config-printer (for setting up HP network printer)
 - firefox
 - lxappearance
-- nvidia-lts
+- nvidia-lts, bbswitch-dkms
 - redshift
 - signal-desktop
 - screenfetch
