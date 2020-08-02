@@ -27,6 +27,7 @@ https://github.com/kazhala/dotbare
 - redshift
 - signal-desktop
 - screenfetch
+- arandr
 
 ** Arch User Repository
 - polybar
