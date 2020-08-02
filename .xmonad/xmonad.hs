@@ -15,6 +15,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicProperty
+import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
@@ -46,6 +47,7 @@ myStartupHook = do
       spawnOnce "pasystray"
       spawnOnce "~/.scripts/toggle_trayer.sh"
       spawnOnce "spotify"
+      setWMName "LG3D"
 
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
@@ -290,7 +292,7 @@ main = do
 
     xmonad $ ewmh $ docks def
         { terminal = myTerminal
-        , startupHook        = myStartupHook
+        , startupHook = myStartupHook
         , manageHook = myManageHook <+> manageHook def
         , layoutHook = myLayoutHook
         , handleEventHook = myHandleEventHook <+> handleEventHook def
