@@ -131,8 +131,8 @@ myKeys =
       ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-"),
       ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 5%+"),
       ("<XF86AudioMute>", spawn "amixer sset Master toggle"),
-      ("<XF86MonBrightnessDown>", spawn "light -U 10"),
-      ("<XF86MonBrightnessUp>", spawn "light -A 10"),
+      ("<XF86MonBrightnessDown>", spawn "light -U 5"),
+      ("<XF86MonBrightnessUp>", spawn "light -A 5"),
       ("M-C-k", spawn "~/.scripts/change_keyboard_layout.sh"),
       ("M-C-b", spawn "~/.scripts/toggle_trayer.sh")
     ]
