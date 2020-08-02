@@ -10,10 +10,8 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 export PS1="%n@%M %~ %% "
 
-alias brighten="~/.scripts/increment_screen_backlight.sh"
-alias dim="~/.scripts/decrement_screen_backlight.sh"
-
 source ~/.dotbare/dotbare.plugin.zsh
+alias dots=~/.scripts/dotbare_auto.sh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
