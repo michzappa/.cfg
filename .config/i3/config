@@ -109,6 +109,8 @@ bindsym $mod+Shift+10 move container to workspace number $ws10
 
 bindsym $mod+r mode "resize"
 
+for_window [class="Spotify"] move to workspace $ws10
+      
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -221,6 +223,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec pasystray
 exec blueman-applet
+exec spotify
 
 # wallpaper and compositor
 exec nitrogen --restore
