@@ -53,6 +53,7 @@ myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
   [
     className =? "Spotify" --> doShift "0"
+  --, className =? "VirtualBox Manager" --> doFloat
   , manageDocks
   ]
 
