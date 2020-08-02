@@ -20,7 +20,7 @@ https://github.com/kazhala/dotbare
 - i3-gaps
 - xmonad, xmonad-contrib, xmobar
 - emacs (for editing and tangling org-mode config files)
-- hplip, wget (for setting up HP network printer)
+- cups, hplip, wget, system-config-printer (for setting up HP network printer)
 - firefox
 - lxappearance
 - nvidia-lts
