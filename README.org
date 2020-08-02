@@ -32,6 +32,7 @@ https://github.com/kazhala/dotbare
 - polybar
 - spotify
 - optimus-manager-qt
+- teams
 
 * Development Packages
 - yarn
@@ -40,3 +41,4 @@ https://github.com/kazhala/dotbare
 - inotify-tools
 - intellij-idea-community-edition
 - elixir
+- code
