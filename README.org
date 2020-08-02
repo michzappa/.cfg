@@ -1,10 +1,10 @@
-#+TITLE:Display System Configuration
+#+TITLE:Arch Linux Configuration
 #+AUTHOR: Michael Zappa
 
 * Managed by dotbare
 https://github.com/kazhala/dotbare
 
-* Packages:
+* Display Packages:
 ** Arch Repositories
 - xfce4
 - lightdm, lightdm-gtk-greeter
@@ -25,12 +25,14 @@ https://github.com/kazhala/dotbare
 - lxappearance
 - nvidia-lts
 - redshift
+- signal-desktop
+
 ** Arch User Repository
 - polybar
 - spotify
 - optimus-manager-qt
 
-** Development Packages
+* Development Packages
 - yarn
 - nodejs-lts-erbium
 - jdk-openjdk
