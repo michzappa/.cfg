@@ -8,3 +8,5 @@ export PATH=~/.emacs.d/bin:$PATH
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 source ~/.dotbare/dotbare.plugin.bash
+
+alias dots=~/.scripts/dotbare_auto.sh
