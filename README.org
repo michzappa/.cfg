@@ -28,6 +28,7 @@ https://github.com/kazhala/dotbare
 - signal-desktop
 - screenfetch
 - arandr
+- xarchiver
 
 ** Arch User Repository
 - polybar
