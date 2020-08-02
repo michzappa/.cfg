@@ -29,6 +29,7 @@ autoload -Uz compinit
 compinit
 
 # commands to run on startup
-neofetch
+#neofetch
+screenfetch
 # update my dotfiles from my github repo
 dotbare pull
