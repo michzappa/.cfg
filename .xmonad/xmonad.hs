@@ -77,7 +77,11 @@ myFull = Full
 myMirror :: Mirror Tall a
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
-myLayouts = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
+myLayoutsSpacing = renamed [Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
+
+myLayoutsNoSpacing = myTall ||| myGrid ||| myFull ||| myMirror
+
+myLayouts = myLayoutsSpacing ||| myLayoutsNoSpacing
 
 myKeys :: [(String, X ())]
 myKeys =

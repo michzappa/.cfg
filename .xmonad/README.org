@@ -112,8 +112,36 @@ myFull = Full
 myMirror :: Mirror Tall a
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
-myLayouts = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
+myLayoutsSpacing = renamed [Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
+
+myLayoutsNoSpacing = myTall ||| myGrid ||| myFull ||| myMirror
+
+myLayouts = myLayoutsSpacing ||| myLayoutsNoSpacing
 #+END_SRC
+
+#+RESULTS:
+#+begin_example
+<interactive>:18:14-19: error: Variable not in scope: myTall
+
+<interactive>:18:21-23: error:
+    • Variable not in scope: (|||) :: t2 -> t3 -> t1
+    • Perhaps you meant ‘||’ (imported from Prelude)
+
+<interactive>:18:25-30: error: Variable not in scope: myGrid
+
+<interactive>:18:32-34: error:
+    • Variable not in scope: (|||) :: t1 -> t4 -> t0
+    • Perhaps you meant ‘||’ (imported from Prelude)
+
+<interactive>:18:36-41: error: Variable not in scope: myFull
+
+<interactive>:18:43-45: error:
+    • Variable not in scope: (|||) :: t0 -> t5 -> t
+    • Perhaps you meant ‘||’ (imported from Prelude)
+
+<interactive>:18:47-54: error: Variable not in scope: myMirror
+#+end_example
+
 * Keys
 Additional keybindings for my configuration, using EZConfig notation.
 #+BEGIN_SRC haskell
