@@ -64,6 +64,7 @@ myTerminal = "kitty"
 myFont :: String
 myFont = "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
 #+END_SRC
+
 * Startup Hook
 #+BEGIN_SRC haskell
 myStartupHook :: X ()
@@ -78,6 +79,7 @@ myStartupHook = do
       spawnOnce "conky"
       setWMName "LG3D"
 #+END_SRC
+
 * Manage Hook
 #+BEGIN_SRC haskell
 myManageHook :: Query (Endo WindowSet)
@@ -96,6 +98,7 @@ myHandleEventHook = fullscreenEventHook <+> spotifyEventHook
 spotifyEventHook :: Event -> X All
 spotifyEventHook = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "0")
 #+END_SRC
+
 * Layout Hook
 #+BEGIN_SRC haskell
 myLayoutHook = avoidStruts $ myLayouts
@@ -120,20 +123,6 @@ myFull = Full
 
 myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
 #+END_SRC
-
-#+RESULTS:
-#+begin_example
-Prelude>
-<interactive>:39:13-28: error:
-    Variable not in scope: myLayoutsSpacing
-
-<interactive>:39:30-32: error:
-    • Variable not in scope: (|||) :: t0 -> t1 -> t
-    • Perhaps you meant ‘||’ (imported from Prelude)
-
-<interactive>:39:34-51: error:
-    Variable not in scope: myLayoutsNoSpacing
-#+end_example
 
 * Keys
 Additional keybindings for my configuration, using EZConfig notation.
@@ -202,6 +191,7 @@ myExtraWorkspaces = [("0", "0")]
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspaces)
 #+END_SRC
+
 * Fullscreen Support
 Thanks to https://github.com/xmonad/xmonad-contrib/issues/183#issuecomment-307407822
 #+BEGIN_SRC haskell
@@ -221,6 +211,7 @@ addNETSupported x   = withDisplay $ \dpy -> do
        when (fromIntegral x `notElem` sup) $
          changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
 #+END_SRC
+
 * Prompt Configuration
 #+BEGIN_SRC haskell
 myPromptConfig :: XPConfig
@@ -290,6 +281,7 @@ myPromptKeymap = M.fromList $
      , (xK_Escape, quit)
      ]
 #+END_SRC
+
 * Search Engines
 #+BEGIN_SRC haskell
 archwiki, reddit :: S.SearchEngine
@@ -309,6 +301,7 @@ searchList = [ ("a", archwiki)
              , ("z", S.amazon)
              ]
 #+END_SRC
+
 * Tree Select
 #+BEGIN_SRC haskell
 treeselectAction :: X()
@@ -384,6 +377,7 @@ main = do
         , borderWidth = 0
         } `additionalKeysP` myKeys
 #+END_SRC
+
 * XMobar Config
 ** Fields
 #+BEGIN_SRC haskell :tangle .xmobarrc
