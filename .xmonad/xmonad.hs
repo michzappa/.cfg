@@ -77,7 +77,7 @@ myFull = Full
 myMirror :: Mirror Tall a
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
-myLayouts = myTall ||| myGrid ||| myFull ||| myMirror
+myLayouts = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
 
 myKeys :: [(String, X ())]
 myKeys =
