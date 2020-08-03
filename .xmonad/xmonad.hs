@@ -68,20 +68,22 @@ myLayoutHook = avoidStruts $ myLayouts
 myTall :: Tall a
 myTall = Tall 1 (3/100) (1/2)
 
+myTallGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall
+
 myGrid :: Grid a
 myGrid = Grid
 
-myFull :: Full a
-myFull = Full
+myGridGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myGrid
 
 myMirror :: Mirror Tall a
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
-myLayoutsSpacing = renamed [Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
+myMirrorGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myMirror
 
-myLayoutsNoSpacing = myTall ||| myGrid ||| myFull ||| myMirror
+myFull :: Full a
+myFull = Full
 
-myLayouts = myLayoutsSpacing ||| myLayoutsNoSpacing
+myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
 
 myKeys :: [(String, X ())]
 myKeys =

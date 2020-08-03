@@ -103,43 +103,36 @@ myLayoutHook = avoidStruts $ myLayouts
 myTall :: Tall a
 myTall = Tall 1 (3/100) (1/2)
 
+myTallGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall
+
 myGrid :: Grid a
 myGrid = Grid
 
-myFull :: Full a
-myFull = Full
+myGridGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myGrid
 
 myMirror :: Mirror Tall a
 myMirror = Mirror (Tall 1 (3/100) (3/5))
 
-myLayoutsSpacing = renamed [Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myTall ||| myGrid ||| myFull ||| myMirror
+myMirrorGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myMirror
 
-myLayoutsNoSpacing = myTall ||| myGrid ||| myFull ||| myMirror
+myFull :: Full a
+myFull = Full
 
-myLayouts = myLayoutsSpacing ||| myLayoutsNoSpacing
+myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
 #+END_SRC
 
 #+RESULTS:
 #+begin_example
-<interactive>:18:14-19: error: Variable not in scope: myTall
+Prelude>
+<interactive>:39:13-28: error:
+    Variable not in scope: myLayoutsSpacing
 
-<interactive>:18:21-23: error:
-    • Variable not in scope: (|||) :: t2 -> t3 -> t1
+<interactive>:39:30-32: error:
+    • Variable not in scope: (|||) :: t0 -> t1 -> t
     • Perhaps you meant ‘||’ (imported from Prelude)
 
-<interactive>:18:25-30: error: Variable not in scope: myGrid
-
-<interactive>:18:32-34: error:
-    • Variable not in scope: (|||) :: t1 -> t4 -> t0
-    • Perhaps you meant ‘||’ (imported from Prelude)
-
-<interactive>:18:36-41: error: Variable not in scope: myFull
-
-<interactive>:18:43-45: error:
-    • Variable not in scope: (|||) :: t0 -> t5 -> t
-    • Perhaps you meant ‘||’ (imported from Prelude)
-
-<interactive>:18:47-54: error: Variable not in scope: myMirror
+<interactive>:39:34-51: error:
+    Variable not in scope: myLayoutsNoSpacing
 #+end_example
 
 * Keys
