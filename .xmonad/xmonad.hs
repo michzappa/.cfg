@@ -47,6 +47,7 @@ myStartupHook = do
       spawnOnce "pasystray"
       spawnOnce "~/.scripts/toggle_trayer.sh"
       spawnOnce "spotify"
+      spawnOnce "conky"
       setWMName "LG3D"
 
 myManageHook :: Query (Endo WindowSet)

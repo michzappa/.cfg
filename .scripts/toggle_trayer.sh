@@ -10,7 +10,7 @@ else
         --width 5 \
         --height 19 \
         --distancefrom right \
-        --distance 360 \
+        --distance 480 \
         --tint 0x2E3440 \
         --transparent true \
         --alpha 0

@@ -75,6 +75,7 @@ myStartupHook = do
       spawnOnce "pasystray"
       spawnOnce "~/.scripts/toggle_trayer.sh"
       spawnOnce "spotify"
+      spawnOnce "conky"
       setWMName "LG3D"
 #+END_SRC
 * Manage Hook
@@ -383,7 +384,7 @@ Config {
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
-   , template = " %StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork%}{ | %default:Master% | %date% || %kbd% "
+   , template = " %StdinReader%}{ | %default:Master% | %battery% | %date% | %kbd% "
 #+END_SRC
 ** Commands
 #+BEGIN_SRC haskell :tangle .xmobarrc
