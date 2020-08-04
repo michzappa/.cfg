@@ -1,0 +1,8 @@
+#+TITLE: Elfeed
+
+* Elfeed :elfeed:
+** Reddit :reddit:
+*** https://reddit.com/r/everton/.rss
+*** https://reddit.com/r/linguistics.rss
+*** https://reddit.com/r/french.rss
+***
