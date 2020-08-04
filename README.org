@@ -4,7 +4,7 @@
 * Managed by dotbare
 https://github.com/kazhala/dotbare
 
-* Display Packages:
+* Display/System Packages:
 ** Arch Repositories
 - xfce4
 - lightdm, lightdm-gtk-greeter
@@ -23,17 +23,18 @@ https://github.com/kazhala/dotbare
 - cups, hplip, wget, system-config-printer (for setting up HP network printer)
 - firefox
 - lxappearance
-- nvidia-lts, bbswitch-dkms
+- nvidia-lts, bbswitch-dkms (for optimus laptop)
 - redshift
 - signal-desktop
 - screenfetch
 - arandr
 - xarchiver
+- udiskie, gparted, ntfs-3g (for using external hard drive)
 
 ** Arch User Repository
 - polybar
 - spotify
-- optimus-manager-qt
+- optimus-manager-qt (for optimus laptop)
 - teams
 
 * Development Packages
