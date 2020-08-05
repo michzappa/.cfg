@@ -313,8 +313,15 @@ treeselectAction = TS.treeselectAction myTreeConfig
      ]
    , Node (TS.TSNode "Monitor Layout" "" (return ()))
      [
-       Node (TS.TSNode "Just Laptop" "" (spawn "~/.screenlayout/laptop_no_monitor.sh")) []
-     , Node (TS.TSNode "Laptop with One Monitor" "" (spawn "~/.screenlayout/laptop_extra_monitor.sh")) []
+       Node (TS.TSNode "Laptop" "" (return ()))
+       [
+        Node (TS.TSNode "No Monitor" "" (spawn "~/.screenlayout/laptop_no_monitor.sh")) []
+        , Node (TS.TSNode "One HDMI Monitor" "" (spawn "~/.screenlayout/laptop_extra_monitor.sh")) []
+       ]
+     , Node (TS.TSNode "Desktop" "" (return ()))
+       [
+        Node (TS.TSNode "One VGA Monitor" "" (spawn "~/.screenlayout/desktop_one_monitor_vga.sh")) []
+       ]
      ]
    , Node (TS.TSNode "Shutdown" "" (spawn "shutdown now")) []
    , Node (TS.TSNode "Restart" "" (spawn "reboot")) []
