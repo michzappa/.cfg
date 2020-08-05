@@ -4,5 +4,5 @@ running=$(pidof spotify)
 if [[ "$running" ]]; then
 	artist=$(playerctl metadata artist)
 	song=$(playerctl metadata title)
-	echo -n "$artist - $song"
+	echo -n "| $artist - $song"
 fi
