@@ -405,7 +405,7 @@ Config {
 #+BEGIN_SRC haskell :tangle .xmobarrc
    , commands =
         [
-          Run Com "/bin/bash" ["-c", "~/.scripts/spotify_info.sh"] "music" 1000
+          Run Com "/bin/bash" ["-c", "~/.scripts/spotify_info.sh"] "music" 10
           --volume monitor
          , Run Volume "default" "Master" [] 5
 
