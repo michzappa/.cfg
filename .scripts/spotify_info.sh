@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-running=$(pidof spotify)
-if [[ "$running" ]]; then
+status=$(playerctl status)
+if [ "$status" == "Playing" ]; then
 	artist=$(playerctl metadata artist)
 	song=$(playerctl metadata title)
 	echo -n "| $artist - $song"
