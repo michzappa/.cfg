@@ -16,12 +16,13 @@ Config {
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
-   , template = " %StdinReader%}{ | %default:Master% | %battery% | %date% | %kbd% "
+   , template = " %StdinReader% | %music% }{ | %default:Master% | %battery% | %date% | %kbd% "
 
    , commands =
         [
+          Run Com "/bin/bash" ["-c", "~/.scripts/spotify_info.sh"] "music" 1000
           --volume monitor
-          Run Volume "default" "Master" [] 5
+         , Run Volume "default" "Master" [] 5
 
         -- network activity monitor (dynamic interface resolution)
          , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
