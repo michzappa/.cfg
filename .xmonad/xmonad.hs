@@ -252,6 +252,11 @@ treeselectAction = TS.treeselectAction myTreeConfig
        Node (TS.TSNode "US Default Keyboard" "" (spawn "setxkbmap -layout us")) []
      , Node (TS.TSNode "US International Keyboard" "" (spawn "setxkbmap -layout 'us(intl)'")) []
      ]
+   , Node (TS.TSNode "Monitor Layout" "" (return ()))
+     [
+       Node (TS.TSNode "Just Laptop" "" (spawn "~/.screenlayout/laptop_no_monitor.sh")) []
+     , Node (TS.TSNode "Laptop with One Monitor" "" (spawn "~/.screenlayout/laptop_extra_monitor.sh")) []
+     ]
    , Node (TS.TSNode "Shutdown" "" (spawn "shutdown now")) []
    , Node (TS.TSNode "Restart" "" (spawn "reboot")) []
    , Node (TS.TSNode "Redshift" "" (return ()))
