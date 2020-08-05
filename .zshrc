@@ -26,8 +26,5 @@ zstyle :compinstall filename '/home/michael/.zshrc'
 autoload -Uz compinit
 compinit
 
-# commands to run on startup
-#neofetch
-screenfetch
 # update my dotfiles from my github repo
 dotbare pull

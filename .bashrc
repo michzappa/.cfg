@@ -10,3 +10,4 @@ PS1='[\u@\h \W]\$ '
 source ~/.dotbare/dotbare.plugin.bash
 
 alias dots=~/.scripts/dotbare_auto.sh
+dotbare pull
