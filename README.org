@@ -30,6 +30,7 @@ https://github.com/kazhala/dotbare
 - arandr
 - xarchiver
 - udiskie, gparted, ntfs-3g (for using external hard drive)
+- abode-source-han-sans-otc-fonts, noto-fonts-emoji, ttf-linux-libertine
 
 ** Arch User Repository
 - polybar
