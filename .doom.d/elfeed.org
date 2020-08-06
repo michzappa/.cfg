@@ -5,4 +5,10 @@
 *** https://reddit.com/r/everton/.rss
 *** https://reddit.com/r/linguistics.rss
 *** https://reddit.com/r/french.rss
-***
+*** https://reddit.com/r/soccer.rss
+*** https://reddit.com/r/archlinux.rss
+*** https://reddit.com/r/linux.rss
+*** https://reddit.com/r/formula1.rss
+*** https://reddit.com/r/geopolitics.rss
+*** https://reddit.com/r/neu.rss
+*** https://reddit.com/r/peloton.rss
