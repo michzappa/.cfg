@@ -5,6 +5,16 @@
 https://github.com/kazhala/dotbare
 
 * Packages
+** Pacstrap Installation
+- base
+- base-devel
+- linux
+- linux-firmware
+- linux-lts
+- linux-lts-headers
+- vim
+- git
+- sudo
 ** DM/DE/WM
 - lightdm, lightdm-gtk-greeter
 - xfce4
