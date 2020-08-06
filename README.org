@@ -11,29 +11,31 @@ https://github.com/kazhala/dotbare
 - xmonad, xmonad-contrib, xmobar
 - i3-gaps, polybar(AUR)
 - rofi, trayer, picom, nitrogen, redshift, arandr, lxappearance
+** Terminal
+- kitty
 ** Network, Bluetooth, Sound, Brightness
 - networkmanager, network-manager-applet
 - blueman
 - pulseaudio, alsa-utils, pasystray, pavucontrol
+- playerctl
 - light
 ** NVIDIA Optimus
 - nvidia-lts
 - bbswitch-dkms
 - optimus-manager-qt(AUR)
 ** Utilities
-- emacs (DOOM)
-- kitty
 - xarchiver
-- udiskie, gparted, ntfs-3g
-- playerctl
-- screenfetch/neofetch
 - wget
+- screenfetch/neofetch
+** Disk
+- udiskie, gparted, ntfs-3g
 ** Printing
 - cups
 - hplip
 - system-config-printer
 ** Apps
 - firefox
+- emacs (DOOM)
 - signal-desktop
 - spotify(AUR)
 - teams(AUR)
@@ -41,7 +43,7 @@ https://github.com/kazhala/dotbare
 - adobe-source-han-sans-otc-fonts
 - noto-fonts-emoji
 - ttf-linux-libertine
-** Development Packages
+** Software Development
 - yarn
 - nodejs-lts-erbium
 - jdk-openjdk
