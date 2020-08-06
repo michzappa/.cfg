@@ -6,41 +6,41 @@ https://github.com/kazhala/dotbare
 
 * Packages
 ** DM/DE/WM
-*** lightdm, lightdm-gtk-greeter
-*** xfce4
-*** xmonad, xmonad-contrib, xmobar
-*** i3-gaps, polybar(AUR)
-*** rofi, trayer, picom, nitrogen, redshift, arandr, lxappearance
+- lightdm, lightdm-gtk-greeter
+- xfce4
+- xmonad, xmonad-contrib, xmobar
+- i3-gaps, polybar(AUR)
+- rofi, trayer, picom, nitrogen, redshift, arandr, lxappearance
 ** Network, Bluetooth, Sound, Brightness
-*** networkmanager, network-manager-applet
-*** blueman
-*** pulseaudio, alsa-utils, pasystray, pavucontrol
-*** light
+- networkmanager, network-manager-applet
+- blueman
+- pulseaudio, alsa-utils, pasystray, pavucontrol
+- light
 ** NVIDIA Optimus
-*** nvidia-lts
-*** bbswitch-dkms
-*** optimus-manager-qt(AUR)
+- nvidia-lts
+- bbswitch-dkms
+- optimus-manager-qt(AUR)
 ** Utilities
-*** emacs (DOOM)
-*** kitty
-*** xarchiver
-*** udiskie, gparted, ntfs-3g
-*** playerctl
-*** screenfetch/neofetch
-*** wget
+- emacs (DOOM)
+- kitty
+- xarchiver
+- udiskie, gparted, ntfs-3g
+- playerctl
+- screenfetch/neofetch
+- wget
 ** Printing
-*** cups
-*** hplip
-*** system-config-printer
+- cups
+- hplip
+- system-config-printer
 ** Apps
-*** firefox
-*** signal-desktop
-*** spotify(AUR)
-*** teams(AUR)
+- firefox
+- signal-desktop
+- spotify(AUR)
+- teams(AUR)
 ** Fonts
-*** adobe-source-han-sans-otc-fonts
-*** noto-fonts-emoji
-*** ttf-linux-libertine
+- adobe-source-han-sans-otc-fonts
+- noto-fonts-emoji
+- ttf-linux-libertine
 ** Development Packages
 - yarn
 - nodejs-lts-erbium
