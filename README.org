@@ -20,7 +20,7 @@ https://github.com/kazhala/dotbare
 - xfce4
 - xmonad, xmonad-contrib, xmobar
 - i3-gaps, polybar(AUR)
-- rofi, trayer, picom, nitrogen, redshift, arandr, lxappearance
+- rofi, trayer, conky, picom, nitrogen, redshift, arandr, lxappearance
 ** Terminal
 - kitty
 ** Network, Bluetooth, Sound, Brightness
