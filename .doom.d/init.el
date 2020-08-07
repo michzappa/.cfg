@@ -13,7 +13,9 @@
 ;;
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
- 
+(global-set-key (kbd "C-x e") 'elfeed)
+(global-set-key (kbd "C-x u") 'elfeed-update)
+
 (doom! :input
        ;;chinese
        ;;japanese
