@@ -34,6 +34,7 @@ https://github.com/kazhala/dotbare
 - bbswitch-dkms
 - optimus-manager-qt(AUR)
 ** Utilities
+- timeshift(AUR)
 - bitwarden(AUR)
 - xarchiver
 - imagewriter(AUR)
