@@ -35,6 +35,7 @@ https://github.com/kazhala/dotbare
 - optimus-manager-qt(AUR)
 ** Utilities
 - xarchiver
+- imagewriter
 - wget
 - screenfetch/neofetch
 ** Disk

@@ -1,11 +1,15 @@
 import XMonad
 import System.Exit
+import System.Posix.Env (getEnv)
 import qualified XMonad.StackSet as W
 
 import Data.Monoid
 import qualified Data.Map        as M
 import Data.Maybe (maybeToList)
 import Data.Tree
+
+import XMonad.Config.Desktop
+import XMonad.Config.Kde
 
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -84,6 +88,13 @@ myFull :: Full a
 myFull = Full
 
 myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
+
+myLogHook xmproc = dynamicLogWithPP xmobarPP
+                        { ppOutput = hPutStrLn xmproc
+                        , ppCurrent = xmobarColor "#88C0D0" "" . wrap "[""]"
+                        , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
+                        , ppUrgent = xmobarColor "yellow" "red"
+                        }
 
 myKeys :: [(String, X ())]
 myKeys =
@@ -305,24 +316,42 @@ myTreeNavigation = M.fromList
     , ((0, xK_i),        TS.moveHistForward)
     ]
 
+desktop "kde" = kdeConfig
+desktop "kde-plasma" = kdeConfig
+desktop "plasma" = kdeConfig
+desktop _ = desktopConfig
+
 main :: IO ()
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
+    session <- getEnv "DESKTOP_SESSION"
+    let defDesktopConfig = maybe desktopConfig desktop session
+        myDesktopConfig = defDesktopConfig
+            { terminal = myTerminal
+            , startupHook = myStartupHook
+            , manageHook = myManageHook <+> manageHook def
+            , layoutHook = myLayoutHook
+            , handleEventHook = myHandleEventHook <+> handleEventHook def
+            , modMask = mod4Mask     -- Rebind Mod to the Windows key
+            , workspaces = myWorkspaces
+            , borderWidth = 0
+            } `additionalKeysP` myKeys
 
-    xmonad $ ewmh $ docks def
-        { terminal = myTerminal
-        , startupHook = myStartupHook
-        , manageHook = myManageHook <+> manageHook def
-        , layoutHook = myLayoutHook
-        , handleEventHook = myHandleEventHook <+> handleEventHook def
-        , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppCurrent = xmobarColor "#88C0D0" "" . wrap "[""]"
-                        , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
-                        , ppUrgent = xmobarColor "yellow" "red"
-                        }
-        , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        --, keys    = customKeys myDeletedKeys myInsertedKeys
-        , workspaces = myWorkspaces
-        , borderWidth = 0
-        } `additionalKeysP` myKeys
+    if session == Just "xmonad"
+      then do xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
+              xmonad $ ewmh $ docks myDesktopConfig
+                {
+                  logHook = myLogHook xmproc
+                }
+      else do xmonad $ ewmh myDesktopConfig
+    -- xmonad $ ewmh $ docks def
+    --     { terminal = myTerminal
+    --     , startupHook = myStartupHook
+    --     , manageHook = myManageHook <+> manageHook def
+    --     , layoutHook = myLayoutHook
+    --     , handleEventHook = myHandleEventHook <+> handleEventHook def
+    --     , logHook = myLogHook xmproc
+    --     , modMask = mod4Mask     -- Rebind Mod to the Windows key
+    --     --, keys    = customKeys myDeletedKeys myInsertedKeys
+    --     , workspaces = myWorkspaces
+    --     , borderWidth = 0
+    --     } `additionalKeysP` myKeys

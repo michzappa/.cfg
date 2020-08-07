@@ -11,6 +11,7 @@ Run org-babel-tangle to repopulate the xmonad.hs and .xmobarrc files with your c
 - [[#manage-hook][Manage Hook]]
 - [[#handle-event-hook][Handle Event Hook]]
 - [[#layout-hook][Layout Hook]]
+- [[#log-hook][Log Hook]]
 - [[#keys][Keys]]
 - [[#workspaces][Workspaces]]
 - [[#fullscreen-support][Fullscreen Support]]
@@ -124,6 +125,15 @@ myFull = Full
 myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
 #+END_SRC
 
+* Log Hook
+#+BEGIN_SRC haskell
+myLogHook xmproc = dynamicLogWithPP xmobarPP
+                        { ppOutput = hPutStrLn xmproc
+                        , ppCurrent = xmobarColor "#88C0D0" "" . wrap "[""]"
+                        , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
+                        , ppUrgent = xmobarColor "yellow" "red"
+                        }
+#+END_SRC
 * Keys
 Additional keybindings for my configuration, using EZConfig notation.
 #+BEGIN_SRC haskell
@@ -377,14 +387,8 @@ main = do
         , manageHook = myManageHook <+> manageHook def
         , layoutHook = myLayoutHook
         , handleEventHook = myHandleEventHook <+> handleEventHook def
-        , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppCurrent = xmobarColor "#88C0D0" "" . wrap "[""]"
-                        , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
-                        , ppUrgent = xmobarColor "yellow" "red"
-                        }
+        , logHook = myLogHook xmproc
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        --, keys    = customKeys myDeletedKeys myInsertedKeys
         , workspaces = myWorkspaces
         , borderWidth = 0
         } `additionalKeysP` myKeys
