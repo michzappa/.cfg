@@ -65,3 +65,10 @@ https://github.com/kazhala/dotbare
 - intellij-idea-community-edition
 - elixir
 - code
+
+* Systemctl enable
+- lightdm
+- NetworkManager
+- bluetooth
+- optimus-manager
+- org.cups.cupsd
