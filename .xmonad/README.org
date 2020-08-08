@@ -379,7 +379,7 @@ myTreeNavigation = M.fromList
 #+BEGIN_SRC haskell
 main :: IO ()
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc"
+    xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobarrc.hs"
 
     xmonad $ ewmh $ docks def
         { terminal = myTerminal
@@ -396,7 +396,7 @@ main = do
 
 * XMobar Config
 ** Fields
-#+BEGIN_SRC haskell :tangle .xmobarrc
+#+BEGIN_SRC haskell :tangle .xmobarrc.hs
 Config {
 
    -- appearance
@@ -418,7 +418,7 @@ Config {
    , template = " %StdinReader% %music%}{ | %default:Master% | %battery% | %date% | %kbd% "
 #+END_SRC
 ** Commands
-#+BEGIN_SRC haskell :tangle .xmobarrc
+#+BEGIN_SRC haskell :tangle .xmobarrc.hs
    , commands =
         [
           Run Com "/bin/bash" ["-c", "~/.scripts/spotify_info.sh"] "music" 10
