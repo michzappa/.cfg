@@ -118,7 +118,7 @@ myKeys =
 
     -- launch a terminal
     [ ("M-<Return>", spawn myTerminal)
-
+   
     -- launch rofi (application launcher)
     , ("M-/", spawn "rofi -show run -theme $HOME/.config/rofi/nord")
 

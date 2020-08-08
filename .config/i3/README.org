@@ -138,7 +138,7 @@ bindsym $mod+Shift+10 move container to workspace number $ws10
 
 bindsym $mod+r mode "resize"
 
-for_window [class="Spotify"] move to workspace $ws10
+assign [class="Spotify"] $ws10
       
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -278,5 +278,5 @@ exec conky
 * Keyboard
 #+BEGIN_SRC conf
 exec_always setxkbmap -layout us
-bindsym Ctrl+Mod1+k exec $HOME/.scripts/change_keyboard_layout.sh
+bindsym Ctrl+Mod4+k exec $HOME/.scripts/change_keyboard_layout.sh
 #+END_SRC
