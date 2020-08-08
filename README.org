@@ -50,6 +50,7 @@ https://github.com/kazhala/dotbare
 - firefox
 - emacs (DOOM)
 - signal-desktop
+- discord
 - spotify(AUR)
 - teams(AUR)
 ** Fonts
