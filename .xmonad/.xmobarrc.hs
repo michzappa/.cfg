@@ -1,7 +1,7 @@
 Config {
 
    -- appearance
-     font =         "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
+     font =         "xft:JetBrains Mono:pixelsize=16:antialias=true:hinting=true"
    , bgColor =      "#2E3440"
    , fgColor =      "#ABABAB"
    , position =     Top
@@ -16,7 +16,7 @@ Config {
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
-   , template = " %StdinReader% %music%}{ %default:Master% | %battery% | %date% | %kbd% "
+   , template = " %StdinReader% %music%}{ %default:Master%| %battery% | %date% | %kbd% "
 
    , commands =
         [
@@ -46,8 +46,8 @@ Config {
         , Run Date           "<fc=#ECEFF4>%F (%a) %H:%M</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(intl)" , "<fc=#ECEFF4>INT</fc>")
-                             , ("us"         , "<fc=#ECEFF4>US</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=#ECEFF4>INT</fc> ")
+                             , ("us"         , "<fc=#ECEFF4>US</fc> ")
                              ]
         , Run StdinReader
         ]

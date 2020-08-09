@@ -34,7 +34,7 @@ myTerminal :: String
 myTerminal = "kitty"
 
 myFont :: String
-myFont = "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
+myFont = "xft:JetBrains Mono:pixelsize=16:antialias=true:hinting=true"
 
 myStartupHook :: X ()
 myStartupHook = do
