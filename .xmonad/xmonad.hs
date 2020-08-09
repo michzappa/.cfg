@@ -38,7 +38,7 @@ myFont = "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=t
 
 myStartupHook :: X ()
 myStartupHook = do
-      spawnOnce "nitrogen --restore"
+      -- spawnOnce "nitrogen --restore"
       spawnOnce "picom -f" >> addEWMHFullscreen
       spawnOnce "nm-applet"
       spawnOnce "blueman-applet"
@@ -80,7 +80,8 @@ myMirrorGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True
 myFull :: Full a
 myFull = Full
 
-myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
+--myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
+myLayouts = myTall ||| myGrid ||| myMirror ||| myFull
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
