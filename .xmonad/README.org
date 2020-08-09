@@ -58,8 +58,6 @@ import XMonad.Prompt.FuzzyMatch
 import Control.Monad (when, join)
 import Control.Arrow (first)
 
-
-
 myTerminal :: String
 myTerminal = "kitty"
 
@@ -87,8 +85,7 @@ myStartupHook = do
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
   [
-    className =? "Spotify" --> doShift "0"
-  , manageDocks
+    manageDocks
   ]
 #+END_SRC
 
@@ -97,6 +94,7 @@ myManageHook = composeAll
 myHandleEventHook :: Event -> X All
 myHandleEventHook = fullscreenEventHook <+> spotifyEventHook
 
+-- Because Spotify is special and has to be dealt with differently
 spotifyEventHook :: Event -> X All
 spotifyEventHook = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "0")
 #+END_SRC
@@ -183,15 +181,18 @@ myKeys =
     ++
 
     [
+    -- switch to extra workspaces
       ("M-" ++ key, (windows $ W.greedyView ws))
       | (key, ws) <- myExtraWorkspaces
     ]
     ++
 
     [
+    -- shift to extra workspaces
       ("M-S-" ++ key, (windows $ W.shift ws))
       | (key, ws) <- myExtraWorkspaces
     ]
+    -- search engine
     ++ [("M-s " ++ key, S.promptSearch myPromptConfig' engine) | (key, engine) <- searchList ]
     ++ [("M-S-s " ++ key, S.selectSearch engine) | (key, engine) <- searchList ]
 #+END_SRC
@@ -225,7 +226,7 @@ myWorkspaces = ["1", "2","3","4","5","6","7","8","9"] ++ (map snd myExtraWorkspa
 #+END_SRC
 
 * Helper Functions
-Thanks to https://github.com/xmonad/xmonad-contrib/issues/183#issuecomment-307407822 and https://www.reddit.com/r/xmonad/comments/hm2tg0/how_to_toggle_floating_state_on_a_window/fx41xx4?utm_source=share&utm_medium=web2nord themed backgroundsnord themed backgroundsx
+Thanks to https://github.com/xmonad/xmonad-contrib/issues/183#issuecomment-307407822 and https://www.reddit.com/r/xmonad/comments/hm2tg0/how_to_toggle_floating_state_on_a_window/fx41xx4?utm_source=share&utm_medium=web2nord
 #+BEGIN_SRC haskell
 addEWMHFullscreen :: X ()
 addEWMHFullscreen   = do

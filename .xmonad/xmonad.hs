@@ -30,8 +30,6 @@ import XMonad.Prompt.FuzzyMatch
 import Control.Monad (when, join)
 import Control.Arrow (first)
 
-
-
 myTerminal :: String
 myTerminal = "kitty"
 
@@ -53,13 +51,13 @@ myStartupHook = do
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
   [
-    className =? "Spotify" --> doShift "0"
-  , manageDocks
+    manageDocks
   ]
 
 myHandleEventHook :: Event -> X All
 myHandleEventHook = fullscreenEventHook <+> spotifyEventHook
 
+-- Because Spotify is special and has to be dealt with differently
 spotifyEventHook :: Event -> X All
 spotifyEventHook = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "0")
 
@@ -137,15 +135,18 @@ myKeys =
     ++
 
     [
+    -- switch to extra workspaces
       ("M-" ++ key, (windows $ W.greedyView ws))
       | (key, ws) <- myExtraWorkspaces
     ]
     ++
 
     [
+    -- shift to extra workspaces
       ("M-S-" ++ key, (windows $ W.shift ws))
       | (key, ws) <- myExtraWorkspaces
     ]
+    -- search engine
     ++ [("M-s " ++ key, S.promptSearch myPromptConfig' engine) | (key, engine) <- searchList ]
     ++ [("M-S-s " ++ key, S.selectSearch engine) | (key, engine) <- searchList ]
 
