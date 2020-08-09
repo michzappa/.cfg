@@ -84,8 +84,9 @@ myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myM
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppCurrent = xmobarColor "#81A1C1" "" . wrap "[""]"
-                        , ppTitle = xmobarColor "#ABABAB" "" . shorten 50
+                        , ppCurrent = xmobarColor "#ECEFF4" "" . wrap "[""]"
+                        , ppLayout = xmobarColor "#ECEFF4" ""
+                        , ppTitle = xmobarColor "#ECEFF4" "" . shorten 50
                         , ppUrgent = xmobarColor "yellow" "red"
                         }
 

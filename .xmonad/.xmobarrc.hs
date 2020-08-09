@@ -3,7 +3,7 @@ Config {
    -- appearance
      font =         "xft:System San Fransisco Display:pixelsize=16:antialias=true:hinting=true"
    , bgColor =      "#2E3440"
-   , fgColor =      "#ECEFF4"
+   , fgColor =      "#ABABAB"
    , position =     Top
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
@@ -22,59 +22,23 @@ Config {
         [
           Run Com "/bin/bash" ["-c", "~/.scripts/spotify_info.sh"] "music" 10
           --volume monitor
-         , Run Volume "default" "Master" [] 5
+         , Run Volume "default" "Master" ["--template", "<fc=#ECEFF4>Vol:</fc> <volume>% <status>"
+                                         ,"--"
+                                            , "--onc", "#ABABAB"
+                                            , "--offc", "#ABABAB"
 
-        -- network activity monitor (dynamic interface resolution)
-         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
-                             , "--Low"      , "1000"       -- units: B/s
-                             , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "#88C0D0" -- , "darkgreen"
-                             , "--normal"   , "#88C0D0" -- , "darkorange"
-                             , "--high"     , "#88C0D0" -- , "darkred"
-                             ] 10
-
-        -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
-                             , "--Low"      , "50"         -- units: %
-                             , "--High"     , "85"         -- units: %
-                             , "--low"      , "#88C0D0" -- , "darkgreen"
-                             , "--normal"   , "#88C0D0" -- , "darkorange"
-                             , "--high"     , "#88C0D0" -- , "darkred"
-                             ] 10
-
-        -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
-                             , "--Low"      , "70"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#88C0D0" -- , "darkgreen"
-                             , "--normal"   , "#88C0D0" -- , "darkorange"
-                             , "--high"     , "#88C0D0" -- , "darkred"
-                             ] 50
-
-        -- memory usage monitor
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
-                             , "--Low"      , "20"        -- units: %
-                             , "--High"     , "90"        -- units: %
-                             , "--low"      , "#88C0D0" -- , "darkgreen"
-                             , "--normal"   , "#88C0D0" -- , "darkorange"
-                             , "--high"     , "#88C0D0" -- , "darkred"
-                             ] 10
+                                         ] 5
 
         -- battery monitor
-        , Run Battery        [ "--template" , "Batt: <acstatus>"
-                             , "--Low"      , "10"        -- units: %
-                             , "--High"     , "80"        -- units: %
-                             , "--low"      , "#88C0D0" -- , "darkred"
-                             , "--normal"   , "#88C0D0" -- , "darkorange"
-                             , "--high"     , "#88C0D0" -- , "darkgreen"
+        , Run Battery        [ "--template" , "<fc=#ECEFF4>Batt:</fc> <acstatus>"
 
                              , "--" -- battery specific options
                                        -- discharging status
                                        , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#88C0D0>Charging</fc>"
+                                       , "-O"	, "Charging"
                                        -- charged status
-                                       , "-i"	, "<fc=#81A1C1>Charged</fc>"
+                                       , "-i"	, "Charged"
                              ] 50
 
         -- time and date indicator
@@ -82,8 +46,8 @@ Config {
         , Run Date           "<fc=#ECEFF4>%F (%a) %H:%M</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(intl)" , "<fc=#81A1C1>INT</fc>")
-                             , ("us"         , "<fc=#81A1C1>US</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=#ECEFF4>INT</fc>")
+                             , ("us"         , "<fc=#ECEFF4>US</fc>")
                              ]
         , Run StdinReader
         ]
