@@ -45,7 +45,6 @@ myStartupHook = do
       spawnOnce "pasystray"
       spawnOnce "~/.scripts/toggle_trayer.sh"
       spawnOnce "spotify"
-      spawnOnce "conky"
       setWMName "LG3D"
 
 myManageHook :: Query (Endo WindowSet)
@@ -110,7 +109,8 @@ myKeys =
       ("<XF86MonBrightnessDown>", spawn "light -U 5"),
       ("<XF86MonBrightnessUp>", spawn "light -A 5"),
       ("M-C-k", spawn "~/.scripts/change_keyboard_layout.sh"),
-      ("M-C-b", spawn "~/.scripts/toggle_trayer.sh")
+      ("M-C-b", spawn "~/.scripts/toggle_trayer.sh"),
+      ("M-C-v", spawn "~/.scripts/toggle_conky.sh")
     ]
     ++
 
