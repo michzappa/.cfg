@@ -74,7 +74,7 @@ Config {
                                        -- AC "on" status
                                        , "-O"	, "<fc=#88C0D0>Charging</fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#88C0D0>Charged</fc>"
+                                       , "-i"	, "<fc=#81A1C1>Charged</fc>"
                              ] 50
 
         -- time and date indicator
@@ -82,8 +82,8 @@ Config {
         , Run Date           "<fc=#ECEFF4>%F (%a) %H:%M</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(intl)" , "<fc=#88C0D0>INT</fc>")
-                             , ("us"         , "<fc=#88C0D0>US</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=#81A1C1>INT</fc>")
+                             , ("us"         , "<fc=#81A1C1>US</fc>")
                              ]
         , Run StdinReader
         ]
