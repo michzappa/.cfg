@@ -118,7 +118,7 @@ myKeys =
 
     -- launch a terminal
     [ ("M-<Return>", spawn myTerminal)
-   
+
     -- launch rofi (application launcher)
     , ("M-/", spawn "rofi -show run -theme $HOME/.config/rofi/nord")
 
@@ -130,6 +130,9 @@ myKeys =
 
     -- Quit xmonad
     , ("M-S-z", io (exitWith ExitSuccess))
+
+    -- Toggle window tiled or floating
+    , ("M-S-t", withFocused toggleFloat)
     ]
     ++
 
@@ -145,6 +148,22 @@ myKeys =
     ]
     ++ [("M-s " ++ key, S.promptSearch myPromptConfig' engine) | (key, engine) <- searchList ]
     ++ [("M-S-s " ++ key, S.selectSearch engine) | (key, engine) <- searchList ]
+
+myMouseBindings :: XConfig Layout -> M.Map (ButtonMask, Button) (Window -> X ())
+myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
+
+    -- mod right-click, Set the window to floating mode and move by dragging
+    [ ((modMask, button3), (\w -> focus w >> mouseMoveWindow w))
+
+    -- mod left-click, Raise the window to the top of the stack
+    , ((modMask, button1), (\w -> focus w >> windows W.swapMaster))
+
+    -- mod shift right-click, Set the window to floating mode and resize by dragging
+    , ((modMask .|. shiftMask, button3), (\w -> focus w >> mouseResizeWindow w))
+
+    -- mod click-scroll, toggle float
+    , ((modMask, button2), (\w -> focus w >> toggleFloat w))
+    ]
 
 myExtraWorkspaces :: [(String, WorkspaceId)]
 myExtraWorkspaces = [("0", "0")]
@@ -167,6 +186,11 @@ addNETSupported x   = withDisplay $ \dpy -> do
        sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
        when (fromIntegral x `notElem` sup) $
          changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
+
+toggleFloat :: Window -> X ()
+toggleFloat w = windows (\s -> if M.member w (W.floating s)
+                               then W.sink w s
+                               else (W.float w (W.RationalRect (1/3) (1/4) (1/2) (4/5)) s))
 
 myPromptConfig :: XPConfig
 myPromptConfig = def
@@ -325,5 +349,6 @@ main = do
         , logHook = myLogHook xmproc
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         , workspaces = myWorkspaces
+        , mouseBindings = myMouseBindings
         , borderWidth = 0
         } `additionalKeysP` myKeys
