@@ -378,7 +378,7 @@ myTreeConfig = TS.TSConfig { TS.ts_hidechildren = True
                               , TS.ts_font         = myFont
                               , TS.ts_node         = (0xffECEFF4, 0xd02E3440)
                               , TS.ts_nodealt      = (0xffECEFF4, 0xd02E3440)
-                              , TS.ts_highlight    = (0xffECEFF4, 0xff2E3440)
+                              , TS.ts_highlight    = (0xffECEFF4, 0xff171A20)
                               , TS.ts_extra        = 0xffd0d0d0
                               , TS.ts_node_width   = 200
                               , TS.ts_node_height  = 20
