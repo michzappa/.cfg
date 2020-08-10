@@ -87,7 +87,7 @@ myLogHook xmproc = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppCurrent = xmobarColor "#ECEFF4" "" . wrap "[""]"
                         , ppLayout = xmobarColor "#ECEFF4" ""
-                        , ppTitle = xmobarColor "#ECEFF4" ""
+                        , ppTitle = xmobarColor "#ECEFF4" "" . shorten 100
                         , ppUrgent = xmobarColor "yellow" "red"
                         }
 
