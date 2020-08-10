@@ -54,9 +54,9 @@ https://github.com/kazhala/dotbare
 - spotify(AUR)
 - teams(AUR)
 ** Fonts
-- adobe-source-han-sans-otc-fonts
+- noto-fonts
+- noto-fonts-cjk
 - noto-fonts-emoji
-- ttf-linux-libertine
 ** Software Development
 - yarn
 - nodejs-lts-erbium
