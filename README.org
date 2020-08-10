@@ -57,6 +57,7 @@ https://github.com/kazhala/dotbare
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
+- noto-fonts-extra
 ** Software Development
 - yarn
 - nodejs-lts-erbium

@@ -193,7 +193,7 @@ addNETSupported x   = withDisplay $ \dpy -> do
 toggleFloat :: Window -> X ()
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                                then W.sink w s
-                               else (W.float w (W.RationalRect (1/3) (1/4) (1/2) (4/5)) s))
+                               else (W.float w (W.RationalRect (1/4) (1/8) (1/2) (3/4)) s))
 
 myPromptConfig :: XPConfig
 myPromptConfig = def
