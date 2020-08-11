@@ -38,7 +38,7 @@ myFont = "xft:JetBrains Mono:pixelsize=16:antialias=true:hinting=true"
 
 myStartupHook :: X ()
 myStartupHook = do
-      -- spawnOnce "nitrogen --restore"
+      spawnOnce "nitrogen --restore"
       spawnOnce "picom -f" >> addEWMHFullscreen
       spawnOnce "nm-applet"
       spawnOnce "blueman-applet"
