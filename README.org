@@ -53,12 +53,13 @@ https://github.com/kazhala/dotbare
 - discord
 - spotify (AUR)
 - teams (AUR)
-** Fonts/Icons
+** Fonts/Icons/Themes
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
 - noto-fonts-extra
 - sardi-icons (AUR)
+- arc-gtk-theme
 ** Software Development
 - yarn
 - nodejs-lts-erbium
