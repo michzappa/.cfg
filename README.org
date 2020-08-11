@@ -74,5 +74,5 @@ https://github.com/kazhala/dotbare
 - lightdm
 - NetworkManager
 - bluetooth
-- optimus-manager
+- optimus-manager (AUR)
 - org.cups.cupsd
