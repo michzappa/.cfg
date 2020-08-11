@@ -34,10 +34,10 @@ https://github.com/kazhala/dotbare
 - bbswitch-dkms
 - optimus-manager-qt(AUR)
 ** Utilities
-- timeshift(AUR), cronie
-- bitwarden(AUR)
+- timeshift (AUR), cronie
+- bitwarden (AUR)
 - xarchiver
-- imagewriter(AUR)
+- imagewriter (AUR)
 - wget
 - screenfetch/neofetch
 ** Disk
@@ -51,13 +51,14 @@ https://github.com/kazhala/dotbare
 - emacs (DOOM)
 - signal-desktop
 - discord
-- spotify(AUR)
-- teams(AUR)
-** Fonts
+- spotify (AUR)
+- teams (AUR)
+** Fonts/Icons
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
 - noto-fonts-extra
+- sardi-icons (AUR)
 ** Software Development
 - yarn
 - nodejs-lts-erbium
