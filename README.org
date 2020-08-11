@@ -16,6 +16,7 @@ https://github.com/kazhala/dotbare
 - git
 - sudo
 ** DM/DE/WM
+- xorg
 - lightdm, lightdm-gtk-greeter
 - thunar
 - xmonad, xmonad-contrib, xmobar
