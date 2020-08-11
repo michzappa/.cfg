@@ -17,7 +17,7 @@ https://github.com/kazhala/dotbare
 - sudo
 ** DM/DE/WM
 - lightdm, lightdm-gtk-greeter
-- xfce4
+- thunar
 - xmonad, xmonad-contrib, xmobar
 - i3-gaps, polybar(AUR)
 - rofi, trayer, conky, picom, nitrogen, redshift, arandr, lxappearance
