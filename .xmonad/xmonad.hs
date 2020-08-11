@@ -103,11 +103,15 @@ myKeys =
     ]
     ++
 
-    -- Volume, Brightness Manipulation, Keyboard and Systray Change
+    -- Volume, Player, Brightness Manipulation, Keyboard and Systray Change
     [
       ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 5%-"),
       ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 5%+"),
       ("<XF86AudioMute>", spawn "amixer sset Master toggle"),
+      ("<XF86AudioPlay>", spawn "playerctl play-pause"),
+      ("<XF86AudioStop>", spawn "playerctl stop"),
+      ("<XF86AudioPrev>", spawn "playerctl previous"),
+      ("<XF86AudioNext>", spawn "playerctl next"),
       ("<XF86MonBrightnessDown>", spawn "light -U 5"),
       ("<XF86MonBrightnessUp>", spawn "light -A 5"),
       ("M-C-k", spawn "~/.scripts/change_keyboard_layout.sh"),
