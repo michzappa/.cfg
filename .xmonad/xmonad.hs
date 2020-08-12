@@ -26,6 +26,7 @@ import qualified XMonad.Actions.TreeSelect as TS
 
 import XMonad.Prompt
 import XMonad.Prompt.FuzzyMatch
+import XMonad.Prompt.Ssh
 
 import Control.Monad (when, join)
 import Control.Arrow (first)
@@ -155,6 +156,12 @@ myKeys =
     -- search engine
     ++ [("M-s " ++ key, S.promptSearch myPromptConfig' engine) | (key, engine) <- searchList ]
     ++ [("M-S-s " ++ key, S.selectSearch engine) | (key, engine) <- searchList ]
+    -- prompts
+    ++
+
+    [
+      ("M-p s", sshPrompt myPromptConfig)
+    ]
 
 myMouseBindings :: XConfig Layout -> M.Map (ButtonMask, Button) (Window -> X ())
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
