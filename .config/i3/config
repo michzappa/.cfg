@@ -136,6 +136,19 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+    bar {
+        status_command i3status
+        position top
+        colors {
+            background $bg-color
+        separator #757575
+            #                  border             background         text
+            focused_workspace  $bg-color          $bg-color          $text-color
+            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+    }
+
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 2
 
@@ -212,7 +225,7 @@ bindsym $mod+x exec firefox
 bindsym $mod+c exec code
 bindsym $mod+m exec emacs
 bindsym $mod+Return exec kitty
-bindsym $mod+slash exec rofi -show run -theme $HOME/.config/rofi/nord
+bindsym $mod+slash exec rofi -show run -theme $HOME/.config/rofi/grayscale
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -230,7 +243,7 @@ exec nitrogen --restore
 exec picom -f --config $HOME/.config/picom/picom.conf
 
 # polybar launching
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 # conky for desktop information
 exec conky
 

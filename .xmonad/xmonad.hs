@@ -80,8 +80,8 @@ myMirrorGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True
 myFull :: Full a
 myFull = Full
 
---myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
-myLayouts = myTall ||| myGrid ||| myMirror ||| myFull
+myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
+--myLayouts = myTall ||| myGrid ||| myMirror ||| myFull
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc

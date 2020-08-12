@@ -10,10 +10,11 @@ Run org-tangle-babel to repopulate the config file with your changes.
 - [[#volume-control][Volume Control]]
 - [[#window-controlmanipulation][Window Control/Manipulation]]
 - [[#workspaces][Workspaces]]
+- [[#bar][Bar]]
 - [[#gaps][Gaps]]
 - [[#colors][Colors]]
 - [[#application-keybindings][Application Keybindings]]
-- [[#startup-commands][Startup Commands]]
+  - [[#startup-commands][Startup Commands]]
 - [[#keyboard][Keyboard]]
 
 * Basic settings and controls
@@ -165,6 +166,21 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 #+END_SRC
+* Bar
+#+BEGIN_SRC conf
+    bar {
+        status_command i3status
+        position top
+        colors {
+            background $bg-color
+        separator #757575
+            #                  border             background         text
+            focused_workspace  $bg-color          $bg-color          $text-color
+            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+    }
+#+END_SRC
 * Gaps
 #+BEGIN_SRC conf
 # Disable window titlebars entirely
@@ -249,10 +265,10 @@ bindsym $mod+x exec firefox
 bindsym $mod+c exec code
 bindsym $mod+m exec emacs
 bindsym $mod+Return exec kitty
-bindsym $mod+slash exec rofi -show run -theme $HOME/.config/rofi/nord
+bindsym $mod+slash exec rofi -show run -theme $HOME/.config/rofi/grayscale
 #+END_SRC
 
-* Startup Commands
+** Startup Commands
 #+BEGIN_SRC conf
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -270,7 +286,7 @@ exec nitrogen --restore
 exec picom -f --config $HOME/.config/picom/picom.conf
 
 # polybar launching
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 # conky for desktop information
 exec conky
 #+END_SRC
