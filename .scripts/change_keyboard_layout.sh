@@ -3,10 +3,10 @@ CURRENT=`~/.scripts/get_current_keyboard_layout.sh`
 
 if [ $CURRENT = 'US' ]
 then
-	setxkbmap -layout 'us(intl)'
+	setxkbmap -layout 'us(alt-intl)'
 fi
 
-if [ $CURRENT = 'US(INTL)' ]
+if [ $CURRENT = 'US(ALT-INTL)' ]
 then 
 	setxkbmap -layout us
 fi
