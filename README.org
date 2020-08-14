@@ -61,6 +61,11 @@ https://github.com/kazhala/dotbare
 - noto-fonts-extra
 - sardi-icons (AUR)
 - arc-gtk-theme
+** Input Method
+- fcitx
+- fcitx-googlepinyin
+- fcitx-im
+- fcitx-configtool
 ** Software Development
 - yarn
 - nodejs-lts-erbium
