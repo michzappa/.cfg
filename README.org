@@ -3,81 +3,14 @@
 
 * Managed by dotbare
 https://github.com/kazhala/dotbare
-
+* Setup
+- Enable RPM Fusion
+- Enable DeltaRPM
 * Packages
-** Pacstrap Installation
-- base
-- base-devel
-- linux
-- linux-firmware
-- linux-lts
-- linux-lts-headers
+- akmod-nvidia
 - vim
 - git
-- sudo
-** DM/DE/WM
-- xorg
-- lightdm, lightdm-gtk-greeter
-- thunar
-- xmonad, xmonad-contrib, xmobar
-- i3-gaps, polybar(AUR)
-- rofi, trayer, conky, picom, nitrogen, redshift, arandr, lxappearance
-** Terminal
-- kitty
-** Network, Bluetooth, Sound, Brightness
-- networkmanager, network-manager-applet
-- blueman
-- pulseaudio, alsa-utils, pasystray, pavucontrol
-- playerctl
-- light
-** NVIDIA Optimus
-- nvidia-lts
-- bbswitch-dkms
-- optimus-manager-qt(AUR)
-** Utilities
-- timeshift (AUR), cronie
-- bitwarden (AUR)
-- xarchiver
-- imagewriter (AUR)
-- wget
-- screenfetch/neofetch
-** Disk
-- udiskie, gparted, ntfs-3g
-** Printing
-- cups
-- hplip
-- system-config-printer
-** Apps
-- firefox
-- emacs (DOOM)
-- signal-desktop
-- discord
-- spotify (AUR)
-- teams (AUR)
-** Fonts/Icons/Themes
-- noto-fonts
-- noto-fonts-cjk
-- noto-fonts-emoji
-- noto-fonts-extra
-- sardi-icons (AUR)
-- arc-gtk-theme
-** Input Method
-- fcitx
-- fcitx-googlepinyin
-- fcitx-im
-- fcitx-configtool
-** Software Development
-- yarn
-- nodejs-lts-erbium
-- jdk-openjdk
-- inotify-tools
-- intellij-idea-community-edition
-- elixir
-- code
-
-* Systemctl enable
-- lightdm
-- NetworkManager
-- bluetooth
-- optimus-manager (AUR)
-- org.cups.cupsd
+- emacs
+- neofetch
+- teams (download rpm and localinstall)
+- spotify (lpf)
