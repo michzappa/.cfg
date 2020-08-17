@@ -18,7 +18,7 @@ https://github.com/kazhala/dotbare
 ** DM/DE/WM
 - xorg
 - xorg-xinit
-- lightdm, lightdm-gtk-greeter
+- lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings
 - thunar
 - xmonad, xmonad-contrib, xmobar
 - i3-gaps, polybar(AUR)
