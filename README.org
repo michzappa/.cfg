@@ -57,6 +57,7 @@ https://github.com/kazhala/dotbare
 - spotify (AUR)
 - teams (AUR)
 ** Fonts/Icons/Themes
+- ttf-jetbrains-mono
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
