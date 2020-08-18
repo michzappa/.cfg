@@ -49,6 +49,7 @@ https://github.com/kazhala/dotbare
 - cups
 - hplip
 - system-config-printer
+- gutenprint
 ** Apps
 - firefox
 - emacs (DOOM)
@@ -74,7 +75,7 @@ https://github.com/kazhala/dotbare
 - nodejs-lts-erbium
 - jdk-openjdk
 - inotify-tools
-- intellij-idea-community-edition
+- intellij-idea-community-edition/intellij-idea-ultimate-edition (AUR)
 - elixir
 - code
 
