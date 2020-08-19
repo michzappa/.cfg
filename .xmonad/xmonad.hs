@@ -137,7 +137,7 @@ myKeys =
     , ("M-S-z", io (exitWith ExitSuccess))
 
     -- Toggle window tiled or floating
-    , ("M-S-t", withFocused toggleFloat)
+    , ("M-f", withFocused toggleFloatFullscreen)
     ]
     ++
 
@@ -205,6 +205,11 @@ toggleFloat :: Window -> X ()
 toggleFloat w = windows (\s -> if M.member w (W.floating s)
                                then W.sink w s
                                else (W.float w (W.RationalRect (1/4) (1/8) (1/2) (3/4)) s))
+
+toggleFloatFullscreen :: Window -> X ()
+toggleFloatFullscreen w = windows (\s -> if M.member w (W.floating s)
+                               then W.sink w s
+                               else (W.float w (W.RationalRect (0) (0) (1) (1)) s))
 
 myPromptConfig :: XPConfig
 myPromptConfig = def
