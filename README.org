@@ -73,6 +73,7 @@ https://github.com/kazhala/dotbare
 ** Software Development
 - yarn
 - nodejs-lts-erbium
+- npm
 - jdk-openjdk
 - inotify-tools
 - intellij-idea-community-edition/intellij-idea-ultimate-edition (AUR)
