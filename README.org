@@ -28,7 +28,7 @@ https://github.com/kazhala/dotbare
 ** Network, Bluetooth, Sound, Brightness
 - networkmanager, network-manager-applet
 - ipscan (AUR)
-- blueman
+- bluez, bluez-utils, pulseaudio-bluetooth, blueman
 - pulseaudio, alsa-utils, pasystray, pavucontrol
 - playerctl
 - light
