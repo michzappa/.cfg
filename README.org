@@ -19,7 +19,7 @@ https://github.com/kazhala/dotbare
 - xorg
 - xorg-xinit
 - lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings
-- thunar
+- thunar, xfce4-power-manager
 - xmonad, xmonad-contrib, xmobar
 - i3-gaps, polybar(AUR)
 - rofi, trayer, conky, picom, nitrogen, redshift, arandr, lxappearance
