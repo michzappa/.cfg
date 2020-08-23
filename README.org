@@ -6,7 +6,7 @@ https://github.com/kazhala/dotbare
 * Setup
 - Enable RPM Fusion
 sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 - Enable DeltaRPM
 Add "fastestmirror=true" and "deltarpm=true" to /etc/dnf/dnf.conf
