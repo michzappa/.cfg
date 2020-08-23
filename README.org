@@ -12,6 +12,11 @@ sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-re
 
 - Add "fastestmirror=true" and "deltarpm=true" to /etc/dnf/dnf.conf
 
+- Add Flathub repo
+  #+BEGIN_SRC bash
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  #+END_SRC
+
 * Packages
 - akmod-nvidia
 - vim
@@ -21,5 +26,5 @@ sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-re
 - libtool
 - neofetch
 - gnome-tweak-tool
-- teams (download rpm and localinstall)
-- spotify (lpf)
+- teams (flatpak)
+- spotify (flatpak)
