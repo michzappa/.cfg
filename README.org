@@ -18,9 +18,14 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
   #+END_SRC
 
 * Packages
-** Nvidia Laptop
+** Flatpak
+- teams
+- spotify
+- intellij
+** DNF
+*** Nvidia Laptop
 - akmod-nvidia
-** Others
+*** Others
 - vim
 - git
 - emacs
@@ -28,5 +33,3 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 - libtool
 - neofetch
 - gnome-tweak-tool
-- teams (flatpak)
-- spotify (flatpak)
