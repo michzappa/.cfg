@@ -10,8 +10,7 @@ sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-
 sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
   #+END_SRC
 
-- Enable DeltaRPM
-    -Add "fastestmirror=true" and "deltarpm=true" to /etc/dnf/dnf.conf
+- Add "fastestmirror=true" and "deltarpm=true" to /etc/dnf/dnf.conf
 
 * Packages
 - akmod-nvidia
