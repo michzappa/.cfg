@@ -1,4 +1,4 @@
-#+TITLE:Arch Linux Configuration
+#+TITLE:Fedora Configuration
 #+AUTHOR: Michael Zappa
 
 * Managed by dotbare
