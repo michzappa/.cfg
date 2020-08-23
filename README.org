@@ -18,7 +18,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
   #+END_SRC
 
 * Packages
+** Nvidia Laptop
 - akmod-nvidia
+** Others
 - vim
 - git
 - emacs
