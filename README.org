@@ -44,7 +44,6 @@ https://github.com/kazhala/dotbare
 - bitwarden (AUR)
 - gufw
 - xarchiver
-- imagewriter (AUR)
 - wget
 - screenfetch/neofetch
 - fwupd
