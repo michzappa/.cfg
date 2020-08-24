@@ -42,6 +42,7 @@ https://github.com/kazhala/dotbare
 ** Utilities
 - timeshift (AUR), cronie
 - bitwarden (AUR)
+- powertop
 - gufw
 - xarchiver
 - wget
