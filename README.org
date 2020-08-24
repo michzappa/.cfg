@@ -47,6 +47,7 @@ https://github.com/kazhala/dotbare
 - imagewriter (AUR)
 - wget
 - screenfetch/neofetch
+- fwupd
 ** Disk
 - udiskie, gparted, ntfs-3g
 ** Printing
