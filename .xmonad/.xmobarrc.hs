@@ -43,7 +43,7 @@ Config {
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ECEFF4>%F (%a) %I:%M</fc>" "date" 10
+        , Run Date           "<fc=#ECEFF4>%F (%a) %I:%M %p</fc>" "date" 10
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(alt-intl)" , "<fc=#ECEFF4>INT</fc> ")
