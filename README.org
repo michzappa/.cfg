@@ -23,6 +23,9 @@ https://github.com/kazhala/dotbare
 - xmonad, xmonad-contrib, xmobar
 - i3-gaps, polybar(AUR)
 - rofi, trayer, conky, picom, nitrogen, redshift, arandr, lxappearance
+** Virtualbox
+- virtualbox
+- virtualbox-host-dkms (for running lts kernel)
 ** Terminal
 - kitty
 ** Network, Bluetooth, Sound, Brightness
