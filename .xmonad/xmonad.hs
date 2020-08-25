@@ -315,6 +315,7 @@ treeselectAction = TS.treeselectAction myTreeConfig
        ]
      ]
    , Node (TS.TSNode "Shutdown" "" (spawn "shutdown now")) []
+   , Node (TS.TSNode "Suspend" "" (spawn "systemctl suspend")) []
    , Node (TS.TSNode "Restart" "" (spawn "reboot")) []
    , Node (TS.TSNode "Redshift" "" (return ()))
      [
