@@ -78,11 +78,7 @@ myMirror = Mirror (Tall 1 (3/100) (3/5))
 
 myMirrorGaps = renamed[Append "-S"] $ renamed [CutWordsLeft 1] $ spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ myMirror
 
-myFull :: Full a
-myFull = Full
-
-myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps ||| myFull
---myLayouts = myTall ||| myGrid ||| myMirror ||| myFull
+myLayouts = myTall ||| myTallGaps ||| myGrid ||| myGridGaps ||| myMirror ||| myMirrorGaps
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
