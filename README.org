@@ -46,7 +46,6 @@ https://github.com/kazhala/dotbare
 - wget
 - screenfetch/neofetch
 - fwupd
-- flatpak
 ** Disk
 - udiskie, gparted, ntfs-3g
 ** Printing
@@ -58,6 +57,10 @@ https://github.com/kazhala/dotbare
 - firefox
 - emacs (DOOM)
 - signal-desktop
+- discord
+- spotify (AUR)
+- teams (AUR)
+- steam
 ** Fonts/Icons/Themes
 - ttf-jetbrains-mono
 - ttf-liberation
@@ -80,12 +83,6 @@ https://github.com/kazhala/dotbare
 - inotify-tools
 - elixir
 - code
-
-* Flatpak
-- discord
-- spotify
-- teams
-- steam
 
 * Systemctl enable
 - lightdm
