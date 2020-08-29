@@ -21,7 +21,6 @@ https://github.com/kazhala/dotbare
 - lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings
 - thunar, xfce4-power-manager
 - xmonad, xmonad-contrib, xmobar
-- i3-gaps, polybar(AUR)
 - rofi, trayer, conky, picom, nitrogen, redshift, arandr, lxappearance
 ** Virtualbox
 - virtualbox
@@ -41,13 +40,13 @@ https://github.com/kazhala/dotbare
 - optimus-manager-qt(AUR)
 ** Utilities
 - timeshift (AUR), cronie
-- bitwarden (AUR)
 - powertop
 - gufw
 - xarchiver
 - wget
 - screenfetch/neofetch
 - fwupd
+- flatpak
 ** Disk
 - udiskie, gparted, ntfs-3g
 ** Printing
@@ -59,13 +58,9 @@ https://github.com/kazhala/dotbare
 - firefox
 - emacs (DOOM)
 - signal-desktop
-- discord
-- spotify (AUR)
-- teams (AUR)
-- steam (multilib)
 ** Fonts/Icons/Themes
 - ttf-jetbrains-mono
-- ttf-liberation (for steam)
+- ttf-liberation
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
@@ -83,9 +78,14 @@ https://github.com/kazhala/dotbare
 - npm
 - jdk-openjdk
 - inotify-tools
-- intellij-idea-community-edition/intellij-idea-ultimate-edition (AUR)
 - elixir
 - code
+
+* Flatpak
+- discord
+- spotify
+- teams
+- steam
 
 * Systemctl enable
 - lightdm
