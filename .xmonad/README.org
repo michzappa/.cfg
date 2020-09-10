@@ -170,7 +170,10 @@ myKeys =
     , ("M-/", spawn "rofi -show run -theme $HOME/.config/rofi/grayscale")
 
     -- close focused window
-    , ("M-S-q", kill)
+    , ("M-q", kill)
+
+    -- restart xmonad
+    , ("M-S-q", spawn "xmonad --recompile && xmonad --restart")
 
     -- Swap the focused window and the master window
     , ("M-S-<Return>", windows W.swapMaster)
